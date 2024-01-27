@@ -1,0 +1,36 @@
+<div class="header-main-container">
+    <div class="header-left-items-container">
+      <div class="current-location-container">
+        <div class="current-location-icon">
+          <span class="material-icons header-icons"> place </span>
+        </div>
+        <span class="current-location-text">
+          {{ currentLocation }}
+        </span>
+      </div>
+  
+      <div class="current-working-container">
+        <div class="current-working-icon">
+          <span class="material-icons header-icons"> work_outline </span>
+        </div>
+        <span class="current-working-text">
+          <span class="current-job-title">{{ currentProfessionTitle }}</span>
+          <span class="current-company-title" (click)="openCompanyLink()">
+            At {{ currentlyWorkingIn }}</span
+          >
+        </span>
+      </div>
+    </div>
+  
+    <div class="header-right-items-container">
+      <div
+        class="router-items"
+        [routerLink]="[route.routeLink]"
+        routerLinkActive="router-link-active"
+        *ngFor="let route of rightNotificationItems"
+      >
+        {{ route.name }}
+      </div>
+    </div>
+  </div>
+  

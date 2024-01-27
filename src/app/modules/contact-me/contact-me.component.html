@@ -1,0 +1,20 @@
+<div class="contact-me-main-container">
+    <div class="contact-me-boxes-container">
+      <div
+        class="contact-me-box"
+        #thisDiv
+        (mouseover)="oonMouseOverAnimation(thisDiv)"
+        (mouseout)="oonMouseLeaveAnimation(thisDiv)"
+        *ngFor="let contact of allContacts"
+      >
+        <span class="contact-me-title">{{ contact.title }}</span>
+        <span class="contact-me-message">{{ contact.message }}</span>
+        <span
+          class="contact-me-link"
+          (click)="openLinkInAnotherTab(contact.followLink)"
+          >{{ contact.followMeMessage }} -></span
+        >
+      </div>
+    </div>
+  </div>
+  

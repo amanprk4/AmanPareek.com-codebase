@@ -1,0 +1,32 @@
+<div class="about-me-main-container">
+    <div class="text-description-container">
+      <div class="bio-length-radio-button-container">
+        <span class="about-me-header-text">About Me</span>
+  
+        <mat-radio-group (change)="changeBioLength($event)">
+          <mat-radio-button
+            [value]="radioButton.value"
+            class="bio-length-radio-button"
+            *ngFor="let radioButton of radioButtons"
+            [checked]="getDefaultRadioSelect(radioButton.value)"
+            >{{ radioButton.displayValue }}</mat-radio-button
+          >
+        </mat-radio-group>
+      </div>
+  
+      <div class="about-me-bio">
+        <span
+          class="about-me-bio-text"
+          [@fadeInOutState]="selectedBioLength"
+          [innerHtml]="aboutMeBio[selectedBioLength]"
+        >
+        </span>
+      </div>
+    </div>
+  
+    <div class="my-pictures-container">
+  
+      
+    </div>
+  </div>
+  

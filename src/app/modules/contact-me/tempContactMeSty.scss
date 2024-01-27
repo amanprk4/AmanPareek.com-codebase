@@ -1,0 +1,49 @@
+
+:host {
+    display: block;
+  }
+  
+  .contact-me-main-container {
+    height: calc(100vh - 80px);
+    background-color: lightcoral;
+  }
+  
+  .contact-me-boxes-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: space-evenly;
+  }
+  
+  .contact-me-box {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  span.contact-me-title {
+    border-top: 1px solid green;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 20px 0;
+    background-color: lightpink;
+    border-radius: 10px 10px 0 0;
+  }
+  .contact-me-message {
+    font-size: 20px;
+    padding: 20px 10px;
+  }
+  .contact-me-link {
+    cursor: pointer;
+    text-align: center;
+    border-bottom: 1px solid indigo;
+    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
+    padding: 20px 10px;
+    color: indianred;
+    &:hover {
+      color: white;
+      background-color: violet;
+    }
+  }
+  

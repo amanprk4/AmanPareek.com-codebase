@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html, body { height: 100%;  }
+body { margin: 0; }
+
+* {
+    font-family: Chalkduster, fantasy;
+    // font-family: Luminari, fantasy;
+    // font-family: Bradley Hand, cursive;
+    // font-family: Apple Chancery, cursive;
+    color: #34421E;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

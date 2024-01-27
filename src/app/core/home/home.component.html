@@ -1,0 +1,12 @@
+<div class="home-main-container">
+    <div class="h-20">
+      <app-header></app-header>
+    </div>
+  
+    <div class="h-[calc(100vh-80px)]"
+    [@routeAnimations]="getAnimationData(rOutlet)"
+    >
+      <router-outlet #rOutlet="outlet" ></router-outlet>
+    </div>
+  </div>
+  
