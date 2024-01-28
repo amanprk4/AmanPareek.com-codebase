@@ -1,36 +1,42 @@
-<div class="header-main-container">
-    <div class="header-left-items-container">
-      <div class="current-location-container">
-        <div class="current-location-icon">
-          <span class="material-icons header-icons"> place </span>
-        </div>
-        <span class="current-location-text">
-          {{ currentLocation }}
-        </span>
-      </div>
-  
-      <div class="current-working-container">
-        <div class="current-working-icon">
-          <span class="material-icons header-icons"> work_outline </span>
-        </div>
-        <span class="current-working-text">
-          <span class="current-job-title">{{ currentProfessionTitle }}</span>
-          <span class="current-company-title" (click)="openCompanyLink()">
-            At {{ currentlyWorkingIn }}</span
-          >
-        </span>
-      </div>
+<div
+  class="flex justify-between !bg-primary-800 p-5 items-center"
+>
+  <div class="flex">
+    <div
+      class="flex mx-3 items-center border-r border-solid border-white pr-4"
+    >
+      <span class="material-icons text-4xl text-white"> place </span>
+      <span class="flex items-center text-base text-white">
+        {{ currentLocation }}
+      </span>
     </div>
-  
-    <div class="header-right-items-container">
-      <div
-        class="router-items"
-        [routerLink]="[route.routeLink]"
-        routerLinkActive="router-link-active"
-        *ngFor="let route of rightNotificationItems"
-      >
-        {{ route.name }}
+
+    <div class="flex mx-3 items-center">
+      <div class="current-working-icon">
+        <span class="material-icons text-4xl text-white">
+          work_outline
+        </span>
       </div>
+      <span class="flex items-center text-base flex-col ml-3">
+        <span class="text-white">{{ currentProfessionTitle }}</span>
+        <span
+          class="cursor-pointer text-left w-full text-white hover:text-primary-200"
+          (click)="openCompanyLink()"
+        >
+        &#64; {{ currentlyWorkingIn }}</span
+        >
+      </span>
     </div>
   </div>
-  
+
+  <div class="flex">
+    <div
+      class="mx-5 text-xl cursor-pointer text-primary-200 focus:outline-none hover:text-primary-500"
+      [routerLink]="[route.routeLink]"
+      routerLinkActive="text-4xl !text-white"
+      *ngFor="let route of rightNotificationItems"
+    >
+      {{ route.name }}
+    </div>
+  </div>
+</div>

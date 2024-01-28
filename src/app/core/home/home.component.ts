@@ -14,7 +14,7 @@ export class HomeComponent {
     if (!routeData) {
       return "aboutMe";
     } else {
-      return routeData["page"];
+      return routeData?.["page"];
     }
   }
 }

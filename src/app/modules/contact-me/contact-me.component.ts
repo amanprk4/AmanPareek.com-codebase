@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-contact-me',
-  templateUrl: './contact-me.component.html',
-  styleUrl: './tempContactMeSty.scss'
+  templateUrl: './contact-me.component.html'
 })
 export class ContactMeComponent {
   allContacts: any = [];

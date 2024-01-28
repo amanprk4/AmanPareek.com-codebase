@@ -10,7 +10,7 @@ import {
 export const fader =
   trigger('routeAnimations', [
     transition('* <=> *', [
-      query(':enter, :leave', [
+      query(':enter, :leave,', [
         style({
           position: 'absolute',
           left: 0,
