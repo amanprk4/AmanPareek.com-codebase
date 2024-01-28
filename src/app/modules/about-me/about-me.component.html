@@ -17,10 +17,10 @@
     </div>
 
     <div
+    [@fadeInOutState]="selectedBioLength"
       class="border-b border-primary-500 rounded-b bg-primary-50 whitespace-pre-line text-primary-700 text-lg w-1/2 h-1/2"
     >
       <span
-        [@fadeInOutState]="selectedBioLength"
         [innerHtml]="aboutMeBio[selectedBioLength]"
       >
       </span>

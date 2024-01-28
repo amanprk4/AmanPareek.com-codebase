@@ -31,9 +31,8 @@ export const slider =
   trigger('routeAnimations', [
     transition('* => aboutMe', slideTo('left') ),
     transition('* => contactMe', slideTo('right') ),
-    transition('contactMe => myBlogs', slideTo('left') ),
-    transition('aboutMe => myBlogs', slideTo('right') ),
-
+    transition('contactMe => aboutMe', slideTo('left') ),
+    transition('aboutMe => contactMe', slideTo('right') ),
   ]);
 
 function slideTo(direction:any) {
@@ -49,7 +48,7 @@ function slideTo(direction:any) {
     ], optional),
     query(':enter', [
       style({ [direction]: '-100%'})
-    ]),
+    ],optional),
     group([
       query(':leave', [
 
@@ -59,7 +58,7 @@ function slideTo(direction:any) {
       query(':enter', [
         animate('600ms ease', style({ [direction]: '5%'})),
         animate('100ms ease', style({ [direction]: '0'}))
-      ])
+      ],optional)
     ]),
   ];
 }
