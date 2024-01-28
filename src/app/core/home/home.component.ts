@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { slider } from '../../shared/animations/router-animations';
 
@@ -17,4 +17,9 @@ export class HomeComponent {
       return routeData?.["page"];
     }
   }
+  constructor( private cdref: ChangeDetectorRef ) {}   
+
+ngAfterContentChecked() {
+    this.cdref.detectChanges();
+ }
 }
