@@ -47,8 +47,8 @@ export class ContactMeComponent {
 
   oonMouseOverAnimation(element: any) {
     const animation = this.builder.build([
-      style({transform:'rotate(3deg)'}),
-      animate(300, style({ transform: "rotate(0)" })),
+      style({transform:'scale(1)'}),
+      animate(300, style({ transform: "scale(1.05)" })),
     ]);
 
     const player = animation.create(element);
@@ -57,8 +57,8 @@ export class ContactMeComponent {
 
   oonMouseLeaveAnimation(element: any) {
     const animation = this.builder.build([
-      style({transform:'rotate(-3deg)'}),
-      animate(300, style({ transform: "rotate(0)" })),
+      style({transform:'scale(1.05)'}),
+      animate(300, style({ transform: "scale(1)" })),
     ]);
 
     const player = animation.create(element);

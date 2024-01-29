@@ -1,10 +1,6 @@
-<div
-  class="flex justify-between !bg-primary-800 p-5 items-center"
->
+<div class="flex justify-between !bg-primary-800 p-5 items-center">
   <div class="flex">
-    <div
-      class="flex mx-3 items-center border-r border-solid border-white pr-4"
-    >
+    <div class="flex mx-3 items-center border-r border-solid border-white pr-4">
       <span class="material-icons text-4xl text-white"> place </span>
       <span class="flex items-center text-base text-white">
         {{ currentLocation }}
@@ -13,9 +9,7 @@
 
     <div class="flex mx-3 items-center">
       <div class="current-working-icon">
-        <span class="material-icons text-4xl text-white">
-          work_outline
-        </span>
+        <span class="material-icons text-4xl text-white"> work_outline </span>
       </div>
       <span class="flex items-center text-base flex-col ml-3">
         <span class="text-white">{{ currentProfessionTitle }}</span>
@@ -23,7 +17,7 @@
           class="cursor-pointer text-left w-full text-white hover:text-primary-200"
           (click)="openCompanyLink()"
         >
-        &#64; {{ currentlyWorkingIn }}</span
+          &#64; {{ currentlyWorkingIn }}</span
         >
       </span>
     </div>
@@ -38,5 +32,17 @@
     >
       {{ route.name }}
     </div>
+
+    <button mat-button [matMenuTriggerFor]="menu">
+      <span class="!text-primary-50 border border-solid border-primary-50 px-3 py-2 rounded flex items-center">
+        <mat-icon class="text-primary-50 mr-1">color_lens</mat-icon>Theme</span>
+    </button>
+    <mat-menu #menu="matMenu"  class="!h-60">
+      <button mat-menu-item *ngFor="let color of colors" (click)="onThemeSelection(color)">
+        <div [style]="{'--color500': color.hexCodes[500],'--color50': color.hexCodes[50]}" class="bg-[var(--color500)] text-[var(--color50)] px-4 rounded !w-40 border-l-4 border-dotted">
+          {{color.displayName}}
+        </div>      
+      </button>
+    </mat-menu>
   </div>
 </div>
