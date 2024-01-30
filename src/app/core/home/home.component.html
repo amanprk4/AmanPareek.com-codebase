@@ -1,6 +1,5 @@
 <div class="home-main-container relative" 
 [ngClass]="selectedTheme"
-*ngIf="selectedTheme"
 >
   <div class="h-20">
     <app-header></app-header>
@@ -27,7 +26,7 @@
     <router-outlet #rOutlet="outlet"></router-outlet>
   </div>
 
-<mat-menu #menu="matMenu" class="!h-80 !mb-4">
+<mat-menu #menu="matMenu" class="!h-80 !mb-4 !bg-transparent">
   <button
     mat-menu-item
     *ngFor="let color of colors"
@@ -38,9 +37,10 @@
         '--color500': color.hexCodes[500],
         '--color50': color.hexCodes[50]
       }"
-      class="bg-[var(--color500)] text-[var(--color50)] px-4 rounded !w-40 border-l-4 border-dotted"
+      class="bg-[var(--color500)] text-[var(--color50)] px-4 rounded !w-40 border-l-4 border-dotted flex items-center justify-between"
     >
       {{ color.displayName }}
+      <mat-icon *ngIf="selectedTheme === color.name" class="!text-white">done</mat-icon>
     </div>
   </button>
 </mat-menu>

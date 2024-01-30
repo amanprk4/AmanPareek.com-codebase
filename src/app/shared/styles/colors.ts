@@ -316,14 +316,15 @@ export const colors: Color[] = [
 let allThemes = colors.map((color)=>{
   return {
     name: color.name,
-    selector: [`.${color.name}`],
+    selectors: [`.${color.name}`],
     theme: {
-      color: {
+      colors: {
         primary: color.hexCodes
       }
     }
   }
 })
-let baseTheme = {...allThemes[4]};
-baseTheme.selector = [':root'];
+let baseTheme = {...allThemes[6]};
+baseTheme.selectors = [':root'];
+baseTheme.name = 'base'
 export const themes = [...allThemes,baseTheme ]
