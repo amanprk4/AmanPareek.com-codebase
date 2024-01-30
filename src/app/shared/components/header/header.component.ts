@@ -17,18 +17,16 @@ export class HeaderComponent {
   ];
   
 
-  currentLocation: any;
-  currentProfessionTitle :any;
-  currentlyWorkingIn :any;
-  currentCompanyLink :any;
+  currentLocation = 'Bangalore, India';
+  currentLocationSmall = 'India';
+  currentProfessionTitle = 'Senior Software Engineer';
+  currentProfessionTitleSmall = 'SSE';
+  currentlyWorkingIn = 'Zeotap';
+  currentCompanyLink = 'https://zeotap.com/';
 
   constructor() {}
 
   ngOnInit(): void {
-    this.currentCompanyLink = 'https://zeotap.com/';
-    this.currentLocation = 'Bangalore, India';
-    this.currentProfessionTitle = 'Senior Software Engineer';
-    this.currentlyWorkingIn = 'Zeotap';
   }
   // To open the link in another tab
   openCompanyLink() {
