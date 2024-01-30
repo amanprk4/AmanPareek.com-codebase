@@ -55,7 +55,10 @@
         routerLinkActive="!text-2xl !text-white"
         *ngFor="let route of rightNotificationItems"
       >
-      {{ route.name }}
+      <span class="!font-base">
+        {{ route.name }}
+      </span>
+
       </button>
     </mat-menu>
   </div>
