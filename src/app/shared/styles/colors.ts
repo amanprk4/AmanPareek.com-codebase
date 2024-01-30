@@ -312,3 +312,18 @@ export const colors: Color[] = [
     },
   },
 ]
+
+let allThemes = colors.map((color)=>{
+  return {
+    name: color.name,
+    selector: [`.${color.name}`],
+    theme: {
+      color: {
+        primary: color.hexCodes
+      }
+    }
+  }
+})
+let baseTheme = {...allThemes[4]};
+baseTheme.selector = [':root'];
+export const themes = [...allThemes,baseTheme ]

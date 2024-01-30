@@ -1,12 +1,48 @@
-<div class="home-main-container">
-    <div class="h-20">
-      <app-header></app-header>
-    </div>
-  
-    <div class="h-[calc(100vh-80px)]"
-    [@routeAnimations]="getAnimationData(rOutlet)"
-    >
-      <router-outlet #rOutlet="outlet" ></router-outlet>
-    </div>
+<div class="home-main-container relative" 
+[ngClass]="selectedTheme"
+*ngIf="selectedTheme"
+>
+  <div class="h-20">
+    <app-header></app-header>
   </div>
-  
+  <button
+    class="absolute bottom-0 z-10 left-0 rounded-full bg-primary-600 text-primary-50 flex items-center ml-4 mb-4 p-2"
+    (mouseenter)="isHidden = !isHidden"
+    (mouseleave)="isHidden = !isHidden"
+    [matMenuTriggerFor]="menu"
+  >
+    <mat-icon>color_lens</mat-icon>
+    <span
+      class="text-primary-50 ml-2 transition-all"
+      [@enterAnimation]
+      *ngIf="isHidden"
+      >Theme</span
+    >
+  </button>
+
+  <div
+    class="h-[calc(100vh-80px)]"
+    [@routeAnimations]="getAnimationData(rOutlet)"
+  >
+    <router-outlet #rOutlet="outlet"></router-outlet>
+  </div>
+
+<mat-menu #menu="matMenu" class="!h-80 !mb-4">
+  <button
+    mat-menu-item
+    *ngFor="let color of colors"
+    (click)="onThemeSelection(color)"
+  >
+    <div
+      [style]="{
+        '--color500': color.hexCodes[500],
+        '--color50': color.hexCodes[50]
+      }"
+      class="bg-[var(--color500)] text-[var(--color50)] px-4 rounded !w-40 border-l-4 border-dotted"
+    >
+      {{ color.displayName }}
+    </div>
+  </button>
+</mat-menu>
+
+</div>

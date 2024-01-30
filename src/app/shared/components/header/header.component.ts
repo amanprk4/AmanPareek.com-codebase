@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Color, colors } from '../../styles/colors';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +15,6 @@ export class HeaderComponent {
       routeLink: "/home/contact-me",
     },
   ];
-  colors = colors;
   
 
   currentLocation: any;
@@ -35,8 +33,5 @@ export class HeaderComponent {
   // To open the link in another tab
   openCompanyLink() {
     window.open(this.currentCompanyLink, "_blank");
-  }
-  onThemeSelection(color: Color){
-    console.log(color);
   }
 }
