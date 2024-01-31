@@ -14,22 +14,11 @@ export class AboutMeComponent {
   ];
 
   aboutMeBio:any = {
-    short: `Experienced Senior Software Engineer with a 4.5-year focus on Angular and frontend development. 
-    Known for delivering scalable and user-centric solutions, I am committed to innovation and possess a proven track record in driving impactful projects. 
-    Eager to contribute technical excellence to dynamic teams
-    `,
-    medium: `Seasoned Senior Software Engineer with 4.5 years specializing in Angular and frontend development. 
-    Renowned for crafting scalable and user-centric solutions, I bring a proven track record in driving impactful projects. 
-    From developing in-house tools for automation to creating a Customer 360 platform, my commitment to innovation shines through. 
-    Adept at translating business requirements into efficient code, I am dedicated to staying abreast of technology trends. 
-    Eager to contribute technical excellence and collaborative energy to a forward-thinking team, creating cutting-edge solutions for complex challenges in the ever-evolving landscape of software engineering
-    `,
-    long: `Dynamic Senior Software Engineer with 4.5 years of expertise in Angular and frontend development. 
-    Recognized for creating scalable and user-centric solutions, I have a proven track record in driving impactful projects. 
-    From developing in-house tools, such as a Pricing Tool for project revenue automation and a Sentiment Analysis Tool for HR, to spearheading the creation of a Customer 360 platform, I blend technical prowess with innovation. 
-    Adept at translating business needs into efficient and maintainable code, I am committed to staying at the forefront of technology trends. 
-    Eager to contribute my technical excellence and collaborative approach to a forward-thinking team, delivering cutting-edge solutions in the ever-evolving landscape of software engineering.
-    `,
+    short: `<span class="text-primary-900 text-2xl">Aman Pareek, '96.</span> Front-end wordsmith and Marvel/DC enthusiast. VIT Vellore alum. Passionate about code, movies, and literary adventures. Always ready for a road trip or a scenic car drive. <span class="text-primary-900 text-2xl">Let's craft digital tales!</span> 🚀📚 #TechWordsmith`,
+    medium: `<span class="text-primary-900 text-2xl">Aman Pareek, born '96,</span> crafts digital narratives as a front-end scribe. Marvel/DC savant, VIT Vellore alumnus <span class="text-primary-900 text-2xl">dissecting code during the day and deciphering cosmic stories by night.</span> Passionate about code, movies, and literary adventures. Always up for a road trip or a scenic car drive. <span class="text-primary-900 text-2xl">Join me in scripting the next chapter of innovation!</span> 🚀📚✨ #TechScribe #CodeCraftsman`,
+    long: `In the labyrinth of code and creativity,<span class="text-primary-900 text-2xl">meet Aman Pareek, a '96 VIT Vellore alumnus,</span> scripting digital fables as a front-end storyteller. Born to the skies, <span class="text-primary-900 text-2xl"> an Air Force legacy,</span> I navigate the code by day and interpret cosmic tales by night.
+
+    A Marvel/DC connoisseur, <span class="text-primary-900 text-2xl">each line of code contributes to the narrative.</span> As a cinema savant and bookish bard, inspiration dances between screens and pages. Passionate about code, movies, and literary adventures. Always up for a road trip or a scenic car drive, <span class="text-primary-900 text-2xl">join me in weaving the fabric of innovation!</span> 🚀📚✨ #TechStoryteller #DigitalWordsmith`,
   };
 
   selectedBioLength = "short";
