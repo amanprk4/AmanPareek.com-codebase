@@ -41,7 +41,6 @@ function slideTo(direction:any) {
     query(':enter, :leave', [
       style({
         position: 'absolute',
-        top: '81px',
         [direction]: 0,
         width: '100%',
       })
