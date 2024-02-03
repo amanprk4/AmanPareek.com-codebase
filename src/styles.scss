@@ -3,12 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Chalkduster', sans-serif;
+    src: url(./assets/fonts/Chalkduster.ttf) format("opentype");
+  }
 
 html, body { height: 100%;  }
 body { margin: 0; }
 
 * {
     font-family: 'Chalkduster', sans-serif;
+    // font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
     // font-family: Luminari, fantasy;
     // font-family: Bradley Hand, cursive;
     // font-family: Apple Chancery, cursive;
