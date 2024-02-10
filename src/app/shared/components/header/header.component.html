@@ -1,4 +1,4 @@
-<div class="flex justify-between !bg-white p-5 items-center drop-shadow" >
+<div class="flex justify-between !bg-white p-5 items-center border-b border-solid border-primary-100" >
   <div class="flex">
     <div class="flex mx-3 items-center border-r border-solid border-primary-500 pr-4">
       <i class="fa-solid fa-map-pin text-2xl text-primary-500 mr-2"></i>
@@ -17,13 +17,13 @@
       <span class="flex items-center text-base flex-col ml-3 max-md:flex-row">
         <span class="text-black max-md:hidden">{{ currentProfessionTitle }}</span>
         <span class="text-black md:hidden">{{currentProfessionTitleSmall}}</span>
-        <span
+        <a
           class="cursor-pointer text-left w-full text-primary-500 hover:text-primary-600 flex items-center"
-          (click)="openCompanyLink()"
+          target="_blank"
+          [href]="currentCompanyLink"
         >
         <span class="text-primary-500">&#64;&#160; </span>
-           {{ currentlyWorkingIn }}</span
-        >
+           {{ currentlyWorkingIn }}</a>
       </span>
     </div>
   </div>
@@ -33,9 +33,9 @@
   <!-- Routes for big screen -->
   <div class="flex max-md:hidden">
     <div
-      class="mx-5 text-xl cursor-pointer text-black focus:outline-none hover:text-primary-600"
+      class="mx-5 text-base cursor-pointer text-black focus:outline-none hover:text-primary-600"
       [routerLink]="[route.routeLink]"
-      routerLinkActive="!text-2xl !text-primary-500"
+      routerLinkActive="!scale-125 !text-primary-500"
       *ngFor="let route of rightNotificationItems"
     >
       {{ route.name }}

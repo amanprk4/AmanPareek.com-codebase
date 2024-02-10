@@ -1,7 +1,7 @@
 <div class="flex p-4 w-full h-full px-6 flex-col overflow-y-scroll">
   <!-- Basic info row -->
   <div
-    class="flex rounded-lg border border-solid border-primary-100 py-4 px-2"
+    class="flex rounded-lg border border-solid border-primary-100 py-4 px-2 my-4"
   >
     <img
       class="rounded-lg w-52 h-52 mx-2"
@@ -16,12 +16,12 @@
             </a>
         </div>
 
-      <span class="text-black text-xl my-2">
+      <span class="text-black text-xl my-2 border-b border-solid border-gray-100 pb-2">
         Senior Software Engineer at Zeotap</span
       >
-      <span class="text-gray-500 text-base">
-        Dynamic Senior Software Engineer with 4.5 years of expertise in Angular
-        and frontend development. Proven track record of driving impactful
+      <span class="text-gray-500 text-base [&_em]:text-primary-500">
+        Dynamic Senior Software Engineer with <em>4.5+ years</em> of expertise in <em>Angular
+          and frontend development.</em>  Proven track record of driving impactful
         projects, creating scalable, user-centric solutions, and contributing to
         innovative initiatives. Adept at translating business requirements into
         efficient and maintainable code. Committed to staying at the forefront
@@ -35,14 +35,14 @@
   <div
     class="flex flex-col my-4 rounded-lg border border-solid border-primary-100 py-4"
   >
-    <span class="text-black text-xl mx-2 mb-4">
-      <i class="fa-solid fa-screwdriver-wrench text-primary-500"></i>
+    <span class="text-black text-xl mx-4 mb-4 border-b border-solid border-gray-100 pb-2">
+      <i class="fa-solid fa-screwdriver-wrench text-primary-500 mr-2"></i>
       Skills</span
     >
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap mx-2">
       <div
         *ngFor="let skill of skillsList"
-        class="m-2 px-4 py-2 rounded-l-xl rounded-r-xl bg-primary-50/75 border border-solid border-gray-300 text-black text-sm"
+        class="m-2 px-4 py-2 rounded-l-xl rounded-r-xl bg-primary-50/75 border border-solid border-primary-100 text-black text-sm"
       >
         {{ skill }}
       </div>
@@ -53,30 +53,30 @@
   <div
     class="flex flex-col my-4 rounded-lg border border-solid border-primary-100 py-4"
   >
-    <span class="text-black text-xl mx-2 mb-4">
-      <i class="fa-solid fa-briefcase text-primary-500"></i>
+    <span class="text-black text-xl mx-4 mb-4 border-b border-solid border-gray-100 pb-2">
+      <i class="fa-solid fa-briefcase text-primary-500 mr-2"></i>
       Experience</span>
 
     <div class="flex flex-col">
       <div
         *ngFor="let experience of experienceList"
-        class="flex flex-col mx-2  border-x border-primary-500 bg-primary-50/10 drop-shadow-sm border-solid ml-4 mb-4 p-4 rounded-xl"
+        class="flex flex-col mx-4 border-x border-primary-500 bg-primary-50/10 drop-shadow-sm border-solid mb-4 p-4 rounded-xl"
       >
       <div class="text-black text-lg mb-2">
         {{ experience.title }} at <span class="text-primary-500 hover:text-primary-600 cursor-pointer" (click)="openCompanyLink(experience.link)">{{ experience.companyName }}</span>
       </div>
-      <div class="text-gray-600 text-xs italic mb-2">
+      <div class="text-gray-500 text-xs italic mb-2">
         {{ experience.companyInfo }}
       </div>
       <div class="text-gray-500 flex justify-between mb-2">
-        <span>{{experience.joinedFrom}} - {{experience.joinedTill}}</span>
+        <span>{{experience.joinedFrom}} - {{experience.joinedTill}} <span class="text-primary-500">( {{experience.duration}} )</span> </span>
         <span>{{experience.location}}</span>
       </div>
 
       <div class="flex flex-col">
-        <span class="text-primary-900 text-base mb-2">Learnings</span>
-        <div *ngFor="let learning of experience.learnings" class="mb-4 text-gray-500">
-        - {{learning}}
+        <span class="text-primary-900 text-base mb-2 border-b border-solid border-gray-100 pb-2">Learnings</span>
+        <div *ngFor="let learning of experience.learnings" class="mb-4">
+          <i class="fa-solid fa-chevron-right text-primary-500 mr-2"></i> <span class="text-gray-500 [&_em]:text-primary-500" [innerHTML]="learning"></span>
         </div>
       </div>
 
@@ -87,14 +87,14 @@
   <!-- Education -->
 
   <div class="flex flex-col my-4 rounded-lg border border-solid border-primary-100 py-4">
-    <span class="text-black text-xl mx-2 mb-4">
-        <i class="fa-solid fa-graduation-cap text-primary-500"></i>
+    <span class="text-black text-xl mx-4 mb-4 border-b border-solid border-gray-100 pb-2">
+        <i class="fa-solid fa-graduation-cap text-primary-500 mr-2"></i>
         Education</span>
 
     <div class="flex flex-col">
       <div
         *ngFor="let education of education"
-        class="flex flex-col mx-2  border-x border-primary-500 bg-primary-50/10 drop-shadow-sm border-solid ml-4 mb-4 p-4 rounded-xl"
+        class="flex flex-col mx-4 border-x border-primary-500 bg-primary-50/10 drop-shadow-sm border-solid mb-4 p-4 rounded-xl"
       >
       <div class="text-black text-lg mb-2">
         {{ education.degreeName }} <span *ngIf="education.specialization">in {{education.specialization}}</span> at <span class="text-primary-500" [ngClass]="{' hover:text-primary-600 cursor-pointer': education.link}" (click)="openCompanyLink(education.link)">{{ education.instituteName }}</span>
@@ -103,7 +103,7 @@
         <span>{{education.fromTo}}</span>
         <span>{{education.location}}</span>
       </div>
-      <div>
+      <div class="text-primary-500">
         Grade - {{education.gradePoint}}
       </div>
 
@@ -116,14 +116,14 @@
   <div
   class="flex flex-col my-4 rounded-lg border border-solid border-primary-100 py-4"
 >
-  <span class="text-black text-xl mx-2 mb-4">
-    <i class="fa-solid fa-mountain-sun text-primary-500"></i>
+  <span class="text-black text-xl mx-4 mb-4 border-b border-solid border-gray-100 pb-2">
+    <i class="fa-solid fa-mountain-sun text-primary-500 mr-2"></i>
     Interests</span
   >
-  <div class="flex flex-wrap">
+  <div class="flex flex-wrap mx-2">
     <div
       *ngFor="let interest of interestList"
-      class="m-2 px-4 py-2 rounded-l-xl rounded-r-xl bg-primary-50/75 border border-solid border-gray-300 text-black text-sm"
+      class="m-2 px-4 py-2 rounded-l-xl rounded-r-xl bg-primary-50/75 border border-solid border-primary-100 text-black text-sm"
     >
       {{ interest }}
     </div>

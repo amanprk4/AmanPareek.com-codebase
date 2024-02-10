@@ -12,7 +12,7 @@ export class ResumeComponent {
   ]
 
   interestList = [
-    'Gaming','Road trips','Traveling','Trekking'
+    'Gaming','Road trips','Traveling','Trekking','Marvels/DC fan'
   ];
 
   experienceList = [
@@ -25,9 +25,10 @@ export class ResumeComponent {
       title: 'Senior Software Engineer',
       joinedFrom: '12/2021',
       joinedTill: 'Present',
+      duration: '2 years, 6 months+',
       learnings: [
-        `Developed a Unity demo application enabling Sales executives to showcase products to prospective clients, ensuring the utmost data privacy during presentations.`,
-        `Spearheaded the creation of a Customer 360 platform, providing users with a comprehensive view of customers through identities, traits, events, and journeys`
+        `Developed a Unity demo application enabling Sales executives to <em>showcase products to prospective clients</em>, ensuring the utmost data privacy during presentations.`,
+        `Spearheaded the creation of a Customer 360 platform, providing users with a <em>comprehensive view of customers </em> through identities, traits, events, and journeys`
       ]
     },
     {
@@ -37,12 +38,13 @@ export class ResumeComponent {
       location: 'Bangalore, Karnataka, India',
       title: 'Software Engineer',
       joinedFrom: '07/2019',
-      joinedTill: '12.2021',
+      joinedTill: '12/2021',
+      duration: '2 years, 5 months',
       learnings: [
-        `Engineered an in-house Pricing Tool to automate incoming project revenue calculations, resulting in a 60% % reduction in manual effort and time. This streamlined financial project approvals significantly`,
-        `Innovated a Valuation & Benchmarking Tool for financial clients, enhancing efficiency by 50% and expanding user reach by 20%.`,
-        `Designed an in-house Sentiment Analysis Tool for the HR team, providing a flexible platform for obtaining anonymous employee feedback. This initiative skyrocketed response rates from 30- 40% to nearly 100%`,
-        `Orchestrated the end-to-end development life cycle of over 8 web applications within 2 years, including planning, development, testing, deployment, and ongoing maintenance.`
+        `Engineered an in-house Pricing Tool to automate incoming project revenue calculations, resulting in a <em>60% reduction in manual effort and time</em>. This streamlined financial project approvals significantly`,
+        `Innovated a Valuation & Benchmarking Tool for financial clients, <em>enhancing efficiency by 50% and expanding user reach by 20%.</em>`,
+        `Designed an in-house Sentiment Analysis Tool for the HR team, providing a flexible platform for obtaining anonymous employee feedback. This initiative skyrocketed response rates from <em>30- 40% to nearly 100%</em>`,
+        `Orchestrated the end-to-end development life cycle of over <em>8 web applications within 2 years</em>, including planning, development, testing, deployment, and ongoing maintenance.`
       ]
     }
 

@@ -32,8 +32,4 @@ export class HeaderComponent {
 
   ngOnInit(): void {
   }
-  // To open the link in another tab
-  openCompanyLink() {
-    window.open(this.currentCompanyLink, "_blank");
-  }
 }
