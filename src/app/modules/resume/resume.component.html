@@ -1,0 +1,133 @@
+<div class="flex p-4 w-full h-full px-6 flex-col overflow-y-scroll">
+  <!-- Basic info row -->
+  <div
+    class="flex rounded-lg border border-solid border-primary-100 py-4 px-2"
+  >
+    <img
+      class="rounded-lg w-52 h-52 mx-2"
+      src="../../../assets/images/resume_pic.jpeg"
+    />
+    <div class="flex flex-col ml-2 justify-start">
+        <div class="flex justify-between">
+            <span class="text-black text-3xl">Aman Pareek</span>
+            <a target="_blank" class="cursor-pointer text-center rounded-xl py-2 px-4 border border-solid border-gray-200 text-primary-500 hover:text-white hover:bg-primary-500 [&_i]:hover:text-white" href="../../../assets/documents/Frontend_developer_AmanPareek.pdf">
+                <i class="fa-solid fa-file-arrow-down text-primary-500"></i>
+                Download
+            </a>
+        </div>
+
+      <span class="text-black text-xl my-2">
+        Senior Software Engineer at Zeotap</span
+      >
+      <span class="text-gray-500 text-base">
+        Dynamic Senior Software Engineer with 4.5 years of expertise in Angular
+        and frontend development. Proven track record of driving impactful
+        projects, creating scalable, user-centric solutions, and contributing to
+        innovative initiatives. Adept at translating business requirements into
+        efficient and maintainable code. Committed to staying at the forefront
+        of technology trends and eager to bring technical excellence to a
+        forward-thinking team.
+      </span>
+    </div>
+  </div>
+
+  <!-- Skills -->
+  <div
+    class="flex flex-col my-4 rounded-lg border border-solid border-primary-100 py-4"
+  >
+    <span class="text-black text-xl mx-2 mb-4">
+      <i class="fa-solid fa-screwdriver-wrench text-primary-500"></i>
+      Skills</span
+    >
+    <div class="flex flex-wrap">
+      <div
+        *ngFor="let skill of skillsList"
+        class="m-2 px-4 py-2 rounded-l-xl rounded-r-xl bg-primary-50/75 border border-solid border-gray-300 text-black text-sm"
+      >
+        {{ skill }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Experience -->
+  <div
+    class="flex flex-col my-4 rounded-lg border border-solid border-primary-100 py-4"
+  >
+    <span class="text-black text-xl mx-2 mb-4">
+      <i class="fa-solid fa-briefcase text-primary-500"></i>
+      Experience</span>
+
+    <div class="flex flex-col">
+      <div
+        *ngFor="let experience of experienceList"
+        class="flex flex-col mx-2  border-x border-primary-500 bg-primary-50/10 drop-shadow-sm border-solid ml-4 mb-4 p-4 rounded-xl"
+      >
+      <div class="text-black text-lg mb-2">
+        {{ experience.title }} at <span class="text-primary-500 hover:text-primary-600 cursor-pointer" (click)="openCompanyLink(experience.link)">{{ experience.companyName }}</span>
+      </div>
+      <div class="text-gray-600 text-xs italic mb-2">
+        {{ experience.companyInfo }}
+      </div>
+      <div class="text-gray-500 flex justify-between mb-2">
+        <span>{{experience.joinedFrom}} - {{experience.joinedTill}}</span>
+        <span>{{experience.location}}</span>
+      </div>
+
+      <div class="flex flex-col">
+        <span class="text-primary-900 text-base mb-2">Learnings</span>
+        <div *ngFor="let learning of experience.learnings" class="mb-4 text-gray-500">
+        - {{learning}}
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Education -->
+
+  <div class="flex flex-col my-4 rounded-lg border border-solid border-primary-100 py-4">
+    <span class="text-black text-xl mx-2 mb-4">
+        <i class="fa-solid fa-graduation-cap text-primary-500"></i>
+        Education</span>
+
+    <div class="flex flex-col">
+      <div
+        *ngFor="let education of education"
+        class="flex flex-col mx-2  border-x border-primary-500 bg-primary-50/10 drop-shadow-sm border-solid ml-4 mb-4 p-4 rounded-xl"
+      >
+      <div class="text-black text-lg mb-2">
+        {{ education.degreeName }} <span *ngIf="education.specialization">in {{education.specialization}}</span> at <span class="text-primary-500" [ngClass]="{' hover:text-primary-600 cursor-pointer': education.link}" (click)="openCompanyLink(education.link)">{{ education.instituteName }}</span>
+      </div>
+      <div class="text-gray-500 flex justify-between mb-2">
+        <span>{{education.fromTo}}</span>
+        <span>{{education.location}}</span>
+      </div>
+      <div>
+        Grade - {{education.gradePoint}}
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Interests -->
+
+  <div
+  class="flex flex-col my-4 rounded-lg border border-solid border-primary-100 py-4"
+>
+  <span class="text-black text-xl mx-2 mb-4">
+    <i class="fa-solid fa-mountain-sun text-primary-500"></i>
+    Interests</span
+  >
+  <div class="flex flex-wrap">
+    <div
+      *ngFor="let interest of interestList"
+      class="m-2 px-4 py-2 rounded-l-xl rounded-r-xl bg-primary-50/75 border border-solid border-gray-300 text-black text-sm"
+    >
+      {{ interest }}
+    </div>
+  </div>
+</div>
+
+</div>

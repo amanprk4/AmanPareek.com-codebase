@@ -689,7 +689,7 @@ let allThemes = colors.map((color)=>{
     }
   }
 })
-let baseTheme = {...allThemes[6]};
+let baseTheme = {...allThemes[33]};
 baseTheme.selectors = [':root'];
 baseTheme.name = 'base'
 export const themes = [...allThemes,baseTheme ]

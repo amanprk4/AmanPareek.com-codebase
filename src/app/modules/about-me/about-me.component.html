@@ -2,7 +2,7 @@
   <!-- text bio -->
   <div class="flex flex-col items-center w-full justify-center">
     <div
-      class="py-4 shadow-2xl border-t border-solid border-primary-500 w-3/4 flex justify-center rounded-t mt-4 bg-primary-100 text-primary-800 flex-col text-center"
+      class="py-4 shadow-2xl border-t border-solid border-primary-200 w-3/4 flex justify-center rounded-t mt-4 bg-white text-primary-500 flex-col text-center"
     >
       <span class="text-2xl">About Me</span>
       <mat-radio-group (change)="changeBioLength($event)">
@@ -18,10 +18,10 @@
 
     <div
     [@fadeInOutState]="selectedBioLength"
-      class="shadow-2xl px-4 overflow-y-scroll border-b border-primary-500 rounded-b bg-white whitespace-pre-line text-primary-700 text-lg w-3/4 max-h-[60%]"
+      class="shadow-2xl px-4 overflow-y-scroll border-b border-primary-200 rounded-b bg-white whitespace-pre-line text-primary-700 text-lg w-3/4 max-h-[60%]"
     >
       <span
-      class="text-primary-700"
+      class="text-black"
         [innerHtml]="aboutMeBio[selectedBioLength]"
       >
       </span>
@@ -29,6 +29,6 @@
   </div>
   <!-- Image slider -->
   <div class="flex justify-center flex-col w-1/2 mx-6 max-md:m-auto max-md:w-3/4 ">
-    <img class="rounded-lg shadow-2xl border-double border-t border-b p-1 border-primary-500" src="../../../assets/images/pic_1.jpg" >
+    <img class="rounded-lg shadow-2xl border-double border-t border-b p-1 border-primary-200" src="../../../assets/images/pic_1.jpg" >
   </div>
 </div>

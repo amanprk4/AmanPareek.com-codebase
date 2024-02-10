@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   rightNotificationItems = [
     {
+      name: ".viewResume()",
+      routeLink: "/home/resume",
+    },
+    {
       name: ".knowAman()",
       routeLink: "/home/about-me",
     },

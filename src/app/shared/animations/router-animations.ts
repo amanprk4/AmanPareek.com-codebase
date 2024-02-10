@@ -29,6 +29,10 @@ export const fader =
 
 export const slider =
   trigger('routeAnimations', [
+    transition('* => resume', slideTo('left') ),
+    transition('resume => aboutMe', slideTo('right') ),
+    transition('aboutMe => resume', slideTo('left') ),
+
     transition('* => aboutMe', slideTo('left') ),
     transition('* => contactMe', slideTo('right') ),
     transition('contactMe => aboutMe', slideTo('left') ),

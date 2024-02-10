@@ -1,27 +1,27 @@
-<div class="flex justify-between !bg-primary-800 p-5 items-center" >
+<div class="flex justify-between !bg-white p-5 items-center drop-shadow" >
   <div class="flex">
-    <div class="flex mx-3 items-center border-r border-solid border-white pr-4">
-      <i class="fa-solid fa-map-pin text-2xl text-white mr-2"></i>
-      <span class="flex items-center text-base text-white max-md:hidden">
+    <div class="flex mx-3 items-center border-r border-solid border-primary-500 pr-4">
+      <i class="fa-solid fa-map-pin text-2xl text-primary-500 mr-2"></i>
+      <span class="flex items-center text-base text-black max-md:hidden">
         {{ currentLocation }}
       </span>
-      <span class="flex items-center text-base text-white md:hidden">
+      <span class="flex items-center text-base text-primary-500 md:hidden">
         {{ currentLocationSmall }}
       </span>
     </div>
 
     <div class="flex mx-3 items-center">
       <div class="current-working-icon">
-        <i class="fa-solid fa-briefcase text-white text-2xl"></i>
+        <i class="fa-solid fa-briefcase text-primary-500 text-2xl"></i>
       </div>
       <span class="flex items-center text-base flex-col ml-3 max-md:flex-row">
-        <span class="text-white max-md:hidden">{{ currentProfessionTitle }}</span>
-        <span class="text-white md:hidden">{{currentProfessionTitleSmall}}</span>
+        <span class="text-black max-md:hidden">{{ currentProfessionTitle }}</span>
+        <span class="text-black md:hidden">{{currentProfessionTitleSmall}}</span>
         <span
-          class="cursor-pointer text-left w-full text-white hover:text-primary-500 flex items-center"
+          class="cursor-pointer text-left w-full text-primary-500 hover:text-primary-600 flex items-center"
           (click)="openCompanyLink()"
         >
-        <span class="text-white">&#64;&#160; </span>
+        <span class="text-primary-500">&#64;&#160; </span>
            {{ currentlyWorkingIn }}</span
         >
       </span>
@@ -33,9 +33,9 @@
   <!-- Routes for big screen -->
   <div class="flex max-md:hidden">
     <div
-      class="mx-5 text-xl cursor-pointer text-primary-200 focus:outline-none hover:text-primary-500"
+      class="mx-5 text-xl cursor-pointer text-black focus:outline-none hover:text-primary-600"
       [routerLink]="[route.routeLink]"
-      routerLinkActive="!text-2xl !text-white"
+      routerLinkActive="!text-2xl !text-primary-500"
       *ngFor="let route of rightNotificationItems"
     >
       {{ route.name }}
@@ -45,14 +45,14 @@
   <!-- Routes for small screen -->
   <div class="md:hidden">
     <button [matMenuTriggerFor]="menu">
-      <mat-icon class="text-primary-50">more_vert</mat-icon>
+      <mat-icon class="text-black">more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
       <button
         mat-menu-item
-        class="mx-5 text-xl !cursor-pointer !text-primary-200 !focus:outline-none !hover:text-primary-500"
+        class="mx-5 text-xl !cursor-pointer !text-black !focus:outline-none !hover:text-primary-600"
         [routerLink]="[route.routeLink]"
-        routerLinkActive="!text-2xl !text-white"
+        routerLinkActive="!text-2xl !text-primary-500"
         *ngFor="let route of rightNotificationItems"
       >
       <span class="!font-base">

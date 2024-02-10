@@ -7,13 +7,13 @@
         (mouseleave)="oonMouseLeaveAnimation(thisDiv)"
         *ngFor="let contact of allContacts"
       >
-        <span class="py-4 shadow-sm border-t border-solid border-primary-900 text-center rounded-t-xl text-3xl bg-primary-50">
+        <span class="py-4 shadow-sm border-t border-solid border-primary-200 text-center rounded-t-xl text-3xl bg-white">
           <i [ngClass]="contact.iconClass" class="text-primary-500 text-3xl"></i>
           
           {{ contact.title }}</span>
-        <span class="text-xl px-2 py-6 text-primary-900">{{ contact.message }}</span>
+        <span class="text-xl px-2 py-6 text-black">{{ contact.message }}</span>
         <span
-          class="cursor-pointer shadow-2xl text-center border-b border-solid border-primary-900 rounded-b-xl py-5 px-2 text-primary-500 hover:text-white hover:bg-primary-500"
+          class="cursor-pointer shadow-md text-center border-b border-solid border-primary-200 rounded-b-xl py-5 px-2 text-primary-500 hover:text-white hover:bg-primary-500"
           (click)="openLinkInAnotherTab(contact.followLink)"
           >{{ contact.followMeMessage }} -></span
         >

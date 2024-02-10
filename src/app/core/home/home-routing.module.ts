@@ -24,10 +24,19 @@ const routes: Routes = [
           data:{animation:{page:'contactMe'}}
 
       },
+      {
+        path: 'resume',
+        loadChildren: () =>
+          import('../../modules/resume/resume.module').then(
+            (m) => m.ResumeModule
+          ),
+          data:{animation:{page:'resume'}}
+
+      },
 
       {
         path:'',
-        redirectTo:"about-me",
+        redirectTo:"resume",
         pathMatch:'full'
       }
     ],
