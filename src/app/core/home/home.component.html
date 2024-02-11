@@ -26,10 +26,10 @@
     <router-outlet #rOutlet="outlet"></router-outlet>
   </div>
 
-<mat-menu #menu="matMenu" class="!h-80 !mb-4 !bg-white/50 !shadow-none border border-solid border-gray-100">
+<mat-menu #menu="matMenu" class="!mb-4 !bg-white/50 !shadow-none border border-solid border-gray-100">
   <button
     mat-menu-item
-    *ngFor="let color of colors"
+    *ngFor="let color of colors; index as idx"
     (click)="onThemeSelection(color)"
   >
     <div
@@ -37,10 +37,10 @@
         '--color500': color.hexCodes[500],
         '--color50': color.hexCodes[50]
       }"
-      class="bg-[var(--color500)] text-[var(--color50)] px-4 rounded !w-48 flex items-center justify-between"
+      class="bg-[var(--color500)] px-4 rounded !w-fit h-8 flex items-center justify-between"
     >
-      {{ color.displayName }}
-      <mat-icon *ngIf="selectedTheme === color.name" class="!text-white">done</mat-icon>
+    <span class="text-white">{{idx+1}}. {{ color.displayName }}</span>
+    <i *ngIf="selectedTheme === color.name" class="fa-solid fa-circle-check !text-white mx-4"></i>
     </div>
   </button>
 </mat-menu>

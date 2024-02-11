@@ -22,22 +22,6 @@ function dynamicSort(property:string) {
 
 export const colors: Color[] = [
   {
-    displayName: 'Red 2',
-    name: 'red2',
-    hexCodes: {
-      50: "#FFEBEE",
-      100: "#FFCDD2",
-      200: "#EF9A9A",
-      300: "#E57373",
-      400: "#EF5350",
-      500: "#F44336",
-      600: "#E53935",
-      700: "#D32F2F",
-      800: "#C62828",
-      900: "#B71C1C",
-    }
-  },
-  {
     displayName: 'Pink 2',
     name: 'pink2',
     hexCodes: {
@@ -86,8 +70,8 @@ export const colors: Color[] = [
     }
   },
   {
-    displayName: 'Indigo 2',
-    name: 'indigo2',
+    displayName: 'Indigo',
+    name: 'indigo',
     hexCodes: {
       50: "#E8EAF6",
       100: "#C5CAE9",
@@ -99,38 +83,6 @@ export const colors: Color[] = [
       700: "#303F9F",
       800: "#283593",
       900: "#1A237E",
-    }
-  },
-  {
-    displayName: 'Blue 2',
-    name: 'blue2',
-    hexCodes: {
-      50: "#E3F2FD",
-      100: "#BBDEFB",
-      200: "#90CAF9",
-      300: "#64B5F6",
-      400: "#42A5F5",
-      500: "#2196F3",
-      600: "#1E88E5",
-      700: "#1976D2",
-      800: "#1565C0",
-      900: "#0D47A1",
-    }
-  },
-  {
-    displayName: 'Light Blue 2',
-    name: 'light_blue',
-    hexCodes: {
-      50: "#E1F5FE",
-      100: "#B3E5FC",
-      200: "#81D4FA",
-      300: "#4FC3F7",
-      400: "#29B6F6",
-      500: "#03A9F4",
-      600: "#039BE5",
-      700: "#0288D1",
-      800: "#0277BD",
-      900: "#01579B",
     }
   },
   {
@@ -185,22 +137,6 @@ export const colors: Color[] = [
     displayName: 'Light Green',
     name: 'light_green',
     hexCodes: {
-      50: "#F1F8E9",
-      100: "#DCEDC8",
-      200: "#C5E1A5",
-      300: "#AED581",
-      400: "#9CCC65",
-      500: "#8BC34A",
-      600: "#7CB342",
-      700: "#689F38",
-      800: "#558B2F",
-      900: "#33691E",
-    },
-  },
-  {
-    displayName: 'Lime 2',
-    name: 'lime2',
-    hexCodes: {
       50: "#F9FBE7",
       100: "#F0F4C3",
       200: "#E6EE9C",
@@ -211,38 +147,6 @@ export const colors: Color[] = [
       700: "#AFB42B",
       800: "#9E9D24",
       900: "#827717",
-    },
-  },
-  {
-    displayName: 'Yellow 2',
-    name: 'yellow2',
-    hexCodes: {
-      50: "#FFFDE7",
-      100: "#FFF9C4",
-      200: "#FFF59D",
-      300: "#FFF176",
-      400: "#FFEE58",
-      500: "#FFEB3B",
-      600: "#FDD835",
-      700: "#FBC02D",
-      800: "#F9A825",
-      900: "#F57F17",
-    },
-  },
-  {
-    displayName: 'Amber 2',
-    name: 'amber2',
-    hexCodes: {
-      50: "#FFF8E1",
-      100: "#FFECB3",
-      200: "#FFE082",
-      300: "#FFD54F",
-      400: "#FFCA28",
-      500: "#FFC107",
-      600: "#FFB300",
-      700: "#FFA000",
-      800: "#FF8F00",
-      900: "#FF6F00",
     },
   },
   {
@@ -291,38 +195,6 @@ export const colors: Color[] = [
       700: "#5D4037",
       800: "#4E342E",
       900: "#3E2723",
-    },
-  },
-  {
-    displayName: 'Grey 2',
-    name: 'grey2',
-    hexCodes: {
-      50: "#FAFAFA",
-      100: "#F5F5F5",
-      200: "#EEEEEE",
-      300: "#E0E0E0",
-      400: "#BDBDBD",
-      500: "#9E9E9E",
-      600: "#757575",
-      700: "#616161",
-      800: "#424242",
-      900: "#212121",
-    },
-  },
-  {
-    displayName: 'Blue Grey 2',
-    name: 'blue_grey',
-    hexCodes: {
-      50: "#ECEFF1",
-      100: "#CFD8DC",
-      200: "#B0BEC5",
-      300: "#90A4AE",
-      400: "#78909C",
-      500: "#607D8B",
-      600: "#546E7A",
-      700: "#455A64",
-      800: "#37474F",
-      900: "#263238",
     },
   },
   {
@@ -403,22 +275,6 @@ export const colors: Color[] = [
       '700': '#6d28d9',
       '800': '#5b21b6',
       '900': '#4c1d95'
-    }
-  },
-  {
-    displayName: 'Indigo',
-    name: 'indigo',
-    hexCodes: {
-      '50': '#eef2ff',
-      '100': '#e0e7ff',
-      '200': '#c7d2fe',
-      '300': '#a5b4fc',
-      '400': '#818cf8',
-      '500': '#6366f1',
-      '600': '#4f46e5',
-      '700': '#4338ca',
-      '800': '#3730a3',
-      '900': '#312e81'
     }
   },
   {
@@ -675,7 +531,692 @@ export const colors: Color[] = [
       '800': '#1e293b',
       '900': '#0f172a'
     }
-  }
+  },
+
+  {
+    displayName: 'Crimson',
+    name: 'crimson',
+    hexCodes: {
+      '50': '#fbd2da',
+      '100': '#f9bcc8',
+      '200': '#f7a5b5',
+      '300': '#f58fa3',
+      '400': '#f27891',
+      '500': '#f0627e',
+      '600': '#ee4b6c',
+      '700': '#ec3559',
+      '800': '#ea1e47',
+      '900': '#dc143c'
+    }
+  },
+
+  {
+    displayName: 'Desert Sun',
+    name: 'desert_sun',
+    hexCodes: {
+      '50': '#f7ebd6',
+      '100': '#f3e1c1',
+      '200': '#efd7ac',
+      '300': '#ebcd98',
+      '400': '#e7c383',
+      '500': '#e3b96f',
+      '600': '#e0af5a',
+      '700': '#dca445',
+      '800': '#d89a31',
+      '900': '#c98d26'
+    }
+  },
+  {
+    displayName: 'Orchid',
+    name: 'orchid',
+    hexCodes: {
+      '50': '#f8e5f8',
+      '100': '#f5d8f4',
+      '200': '#f2cbf0',
+      '300': '#eebeed',
+      '400': '#ebb2e9',
+      '500': '#e8a5e5',
+      '600': '#e498e2',
+      '700': '#e18bde',
+      '800': '#de7edb',
+      '900': '#da70d6'
+    }
+  },
+  {
+    displayName: 'Pastel Green',
+    name: 'pastel_green',
+    hexCodes: {
+      '50': '#e7f9e7',
+      '100': '#daf6da',
+      '200': '#cef3ce',
+      '300': '#c2f0c2',
+      '400': '#b6edb6',
+      '500': '#a9eaa9',
+      '600': '#9de79d',
+      '700': '#91e391',
+      '800': '#85e085',
+      '900': '#77dd77'
+    }
+  },
+  {
+    displayName: 'Pastel Red',
+    name: 'pastel_red',
+    hexCodes: {
+      '50': '#ffe4e2',
+      '100': '#ffd6d4',
+      '200': '#ffc8c6',
+      '300': '#ffbbb7',
+      '400': '#ffada9',
+      '500': '#ff9f9a',
+      '600': '#ff928c',
+      '700': '#ff847e',
+      '800': '#ff766f',
+      '900': '#ff6961'
+    }
+  },
+  {
+    displayName: 'Red Orange',
+    name: 'red_orange',
+    hexCodes: {
+      '50': '#ffdfde',
+      '100': '#ffcfcd',
+      '200': '#ffc0bc',
+      '300': '#ffb0ac',
+      '400': '#ffa09b',
+      '500': '#ff908a',
+      '600': '#ff8079',
+      '700': '#ff7069',
+      '800': '#ff6058',
+      '900': '#ff5349'
+    }
+  },
+  {
+    displayName: 'Purple Haze',
+    name: 'purple_haze',
+    hexCodes: {
+      '50': '#e8e5ec',
+      '100': '#dcd8e3',
+      '200': '#d0cbda',
+      '300': '#c4bed0',
+      '400': '#b9b2c7',
+      '500': '#ada5be',
+      '600': '#a198b4',
+      '700': '#968bab',
+      '800': '#8a7ea2',
+      '900': '#7d7098'
+    }
+  },
+  {
+    displayName: 'Rose Red',
+    name: 'rose_red',
+    hexCodes: {
+      '50': '#ffd2dc',
+      '100': '#ffbbcb',
+      '200': '#ffa4b9',
+      '300': '#ff8da8',
+      '400': '#ff7796',
+      '500': '#ff6085',
+      '600': '#ff4974',
+      '700': '#ff3362',
+      '800': '#ff1c51',
+      '900': '#ff033e'
+    }
+  },
+  {
+    displayName: 'Rose Gold',
+    name: 'rose_gold',
+    hexCodes: {
+      '50': '#f2e5e7',
+      '100': '#ecd8db',
+      '200': '#e5cbcf',
+      '300': '#dfbec3',
+      '400': '#d8b1b7',
+      '500': '#d2a4ab',
+      '600': '#cc979f',
+      '700': '#c58a93',
+      '800': '#bf7d86',
+      '900': '#b76e79'
+    }
+  },
+  {
+    displayName: 'Royal Blue',
+    name: 'royal_blue',
+    hexCodes: {
+      '50': '#dde4fa',
+      '100': '#cbd6f7',
+      '200': '#bac9f4',
+      '300': '#a9bbf2',
+      '400': '#98adef',
+      '500': '#86a0ec',
+      '600': '#7592e9',
+      '700': '#6485e7',
+      '800': '#5377e4',
+      '900': '#4169e1'
+    }
+  },
+  {
+    displayName: 'Scarlet',
+    name: 'scarlet',
+    hexCodes: {
+      '50': '#ffd8d1',
+      '100': '#ffc4b9',
+      '200': '#ffb0a2',
+      '300': '#ff9c8b',
+      '400': '#ff8974',
+      '500': '#ff755d',
+      '600': '#ff6146',
+      '700': '#ff4e2e',
+      '800': '#ff3a17',
+      '900': '#ff2400'
+    }
+  },
+  {
+    displayName: 'Tangerine',
+    name: 'tangerine',
+    hexCodes: {
+      '50': '#ffe9cf',
+      '100': '#ffdeb7',
+      '200': '#ffd49f',
+      '300': '#ffc986',
+      '400': '#ffbe6e',
+      '500': '#ffb356',
+      '600': '#ffa83e',
+      '700': '#ff9d26',
+      '800': '#ff930e',
+      '900': '#f28500'
+    }
+  },
+  {
+    displayName: 'Spearmint',
+    name: 'spearmint',
+    hexCodes: {
+      '50': '#dcf1ea',
+      '100': '#cbebe0',
+      '200': '#bae4d6',
+      '300': '#a8ddcc',
+      '400': '#97d6c1',
+      '500': '#85d0b7',
+      '600': '#74c9ad',
+      '700': '#63c2a2',
+      '800': '#51bb98',
+      '900': '#45b08c'
+    }
+  },
+  {
+    displayName: 'Taupe',
+    name: 'taupe',
+    hexCodes: {
+      '50': '#e2dbd5',
+      '100': '#d4c9c1',
+      '200': '#c5b7ac',
+      '300': '#b7a597',
+      '400': '#a89382',
+      '500': '#9a816d',
+      '600': '#87705e',
+      '700': '#725f4f',
+      '800': '#5d4d41',
+      '900': '#483c32'
+    }
+  },
+  {
+    displayName: 'Teal Green',
+    name: 'teal_green',
+    hexCodes: {
+      '50': '#befff4',
+      '100': '#9effef',
+      '200': '#7dffe9',
+      '300': '#5dffe4',
+      '400': '#3cffdf',
+      '500': '#1cffd9',
+      '600': '#00fad1',
+      '700': '#00dab6',
+      '800': '#00b99b',
+      '900': '#009b81'
+    }
+  },
+  {
+    displayName: 'Tiger Lily',
+    name: 'tiger_lily',
+    hexCodes: {
+      '50': '#f8e9e8',
+      '100': '#f5dedc',
+      '200': '#f2d3d1',
+      '300': '#efc9c5',
+      '400': '#ebbeba',
+      '500': '#e8b3ae',
+      '600': '#e5a8a2',
+      '700': '#e29d97',
+      '800': '#de928b',
+      '900': '#db8780'
+    }
+  },
+  {
+    displayName: 'Tiffany Blue',
+    name: 'tiffany_blue',
+    hexCodes: {
+      '50': '#c8fcfa',
+      '100': '#adfbf8',
+      '200': '#92f9f6',
+      '300': '#76f8f4',
+      '400': '#5bf6f1',
+      '500': '#40f5ef',
+      '600': '#25f4ed',
+      '700': '#0defe7',
+      '800': '#0bd3cd',
+      '900': '#0abab5'
+    }
+  },
+  {
+    displayName: 'Turquoise',
+    name: 'turquoise',
+    hexCodes: {
+      '50': '#d9f7f5',
+      '100': '#c6f3f0',
+      '200': '#b4f0eb',
+      '300': '#a1ece5',
+      '400': '#8ee8e0',
+      '500': '#7be4db',
+      '600': '#68e0d6',
+      '700': '#55dcd1',
+      '800': '#42d8cc',
+      '900': '#30d5c8'
+    }
+  },
+  {
+    displayName: 'Yellow Green',
+    name: 'yellow_green',
+    hexCodes: {
+      '50': '#edf6da',
+      '100': '#e3f1c7',
+      '200': '#daedb4',
+      '300': '#d1e8a2',
+      '400': '#c8e48f',
+      '500': '#bedf7c',
+      '600': '#b5db6a',
+      '700': '#acd657',
+      '800': '#a3d244',
+      '900': '#9acd32'
+    }
+  },
+  {
+    displayName: 'Carafe',
+    name: 'carafe',
+    hexCodes: {
+      '50': '#e1d3d1',
+      '100': '#d1bdbb',
+      '200': '#c2a7a4',
+      '300': '#b3918d',
+      '400': '#a47b76',
+      '500': '#926762',
+      '600': '#7c5752',
+      '700': '#654743',
+      '800': '#4e3734',
+      '900': '#362624'
+    }
+  },
+  {
+    displayName: 'Burgundy',
+    name: 'burgundy',
+    hexCodes: {
+      '50': '#ffb9cb',
+      '100': '#ff97b1',
+      '200': '#ff7497',
+      '300': '#ff517d',
+      '400': '#ff2e63',
+      '500': '#ff0c48',
+      '600': '#e8003a',
+      '700': '#c50031',
+      '800': '#a20029',
+      '900': '#800020'
+    }
+  },
+  {
+    displayName: 'Cinnabar',
+    name: 'cinnabar',
+    hexCodes: {
+      '50': '#faddda',
+      '100': '#f7ccc8',
+      '200': '#f5bbb6',
+      '300': '#f2aaa3',
+      '400': '#f09991',
+      '500': '#ed887e',
+      '600': '#eb776c',
+      '700': '#e8665a',
+      '800': '#e65547',
+      '900': '#e34234'
+    }
+  },
+  {
+    displayName: 'Marsala',
+    name: 'marsala',
+    hexCodes: {
+      '50': '#f2e6e5',
+      '100': '#ebd9d8',
+      '200': '#e5cccc',
+      '300': '#debfbf',
+      '400': '#d7b3b2',
+      '500': '#d1a6a5',
+      '600': '#ca9998',
+      '700': '#c38c8b',
+      '800': '#bd807e',
+      '900': '#b57170'
+    }
+  },
+  {
+    displayName: 'Gunmetal Gray',
+    name: 'gunmetal_gray',
+    hexCodes: {
+      '50': '#eaebea',
+      '100': '#e0e1e0',
+      '200': '#d5d7d5',
+      '300': '#cbcdcb',
+      '400': '#c1c3c1',
+      '500': '#b6b9b6',
+      '600': '#acafac',
+      '700': '#a1a5a1',
+      '800': '#979b97',
+      '900': '#8d918d'
+    }
+  },
+  {
+    displayName: 'Kelly Green',
+    name: 'kelly_green',
+    hexCodes: {
+      '50': '#dcf9ce',
+      '100': '#caf6b6',
+      '200': '#b9f39e',
+      '300': '#a7f085',
+      '400': '#95ed6d',
+      '500': '#84ea55',
+      '600': '#72e73c',
+      '700': '#61e424',
+      '800': '#54d21a',
+      '900': '#4cbb17'
+    }
+  },
+  {
+    displayName: 'Blue Iris',
+    name: 'blue_iris',
+    hexCodes: {
+      '50': '#e1dff6',
+      '100': '#d2cff2',
+      '200': '#c3bfed',
+      '300': '#b4afe9',
+      '400': '#a59fe5',
+      '500': '#968fe0',
+      '600': '#877fdc',
+      '700': '#786fd8',
+      '800': '#695fd3',
+      '900': '#5a4fcf'
+    }
+  },
+  {
+    displayName: 'Blue Green',
+    name: 'blue_green',
+    hexCodes: {
+      '50': '#caf1fb',
+      '100': '#b0ebf9',
+      '200': '#95e4f8',
+      '300': '#7bddf6',
+      '400': '#60d6f4',
+      '500': '#46d0f2',
+      '600': '#2bc9f0',
+      '700': '#11c2ee',
+      '800': '#0fadd4',
+      '900': '#0d98ba'
+    }
+  },
+  {
+    displayName: 'Blue Grotto',
+    name: 'blue_grotto',
+    hexCodes: {
+      '50': '#cae7fe',
+      '100': '#b0dbfd',
+      '200': '#96cefd',
+      '300': '#7bc2fc',
+      '400': '#61b6fc',
+      '500': '#47aafb',
+      '600': '#2c9efb',
+      '700': '#1292fa',
+      '800': '#0584ec',
+      '900': '#0476d0'
+    }
+  },
+  {
+    displayName: 'Burnt Orange',
+    name: 'burnt_orange',
+    hexCodes: {
+      '50': '#ffdfc7',
+      '100': '#ffceac',
+      '200': '#ffbe90',
+      '300': '#ffae74',
+      '400': '#ff9e58',
+      '500': '#ff8d3c',
+      '600': '#ff7d20',
+      '700': '#ff6d05',
+      '800': '#e86100',
+      '900': '#cc5500'
+    }
+  },
+  {
+    displayName: 'Chili Pepper',
+    name: 'chili_pepper',
+    hexCodes: {
+      '50': '#f8c8c9',
+      '100': '#f5acad',
+      '200': '#f19092',
+      '300': '#ee7577',
+      '400': '#ea595c',
+      '500': '#e73d40',
+      '600': '#e42225',
+      '700': '#cd191c',
+      '800': '#b11619',
+      '900': '#961316'
+    }
+  },
+  {
+    displayName: 'Chocolate',
+    name: 'chocolate',
+    hexCodes: {
+      '50': '#ff9c33',
+      '100': '#ff931f',
+      '200': '#ff890a',
+      '300': '#f57e00',
+      '400': '#e07400',
+      '500': '#cc6900',
+      '600': '#b85f00',
+      '700': '#a35400',
+      '800': '#8f4a00',
+      '900': '#7b3f00'
+    }
+  },
+  {
+    displayName: 'Cognac',
+    name: 'cognac',
+    hexCodes: {
+      '50': '#f0dbd9',
+      '100': '#e8c9c5',
+      '200': '#e0b7b2',
+      '300': '#d9a59f',
+      '400': '#d1938c',
+      '500': '#c98178',
+      '600': '#c26e65',
+      '700': '#ba5c52',
+      '800': '#ac4f45',
+      '900': '#9a463d'
+    }
+  },
+  {
+    displayName: 'Coral',
+    name: 'coral',
+    hexCodes: {
+      '50': '#ffe8df',
+      '100': '#ffdcd0',
+      '200': '#ffd1c0',
+      '300': '#ffc5b0',
+      '400': '#ffbaa0',
+      '500': '#ffae91',
+      '600': '#ffa381',
+      '700': '#ff9771',
+      '800': '#ff8b61',
+      '900': '#ff7f50'
+    }
+  },
+  {
+    displayName: 'Coffee Pot',
+    name: 'coffee_pot',
+    hexCodes: {
+      '50': '#e7e2e2',
+      '100': '#dbd4d4',
+      '200': '#cfc5c5',
+      '300': '#c3b7b7',
+      '400': '#b7a9a9',
+      '500': '#ab9a9a',
+      '600': '#9f8c8c',
+      '700': '#937d7d',
+      '800': '#867070',
+      '900': '#776464'
+    }
+  },
+  {
+    displayName: 'Electric Blue',
+    name: 'electric_blue',
+    hexCodes: {
+      '50': '#befcff',
+      '100': '#9efaff',
+      '200': '#7df9ff',
+      '300': '#5df7ff',
+      '400': '#3cf5ff',
+      '500': '#1cf4ff',
+      '600': '#00eefa',
+      '700': '#00cfda',
+      '800': '#00b0b9',
+      '900': '#009097'
+    }
+  },
+  {
+    displayName: 'Forest Green',
+    name: 'forest_green',
+    hexCodes: {
+      '50': '#cef3ce',
+      '100': '#b5edb5',
+      '200': '#9ce79c',
+      '300': '#84e184',
+      '400': '#6bdb6b',
+      '500': '#53d553',
+      '600': '#3acf3a',
+      '700': '#2ebd2e',
+      '800': '#28a428',
+      '900': '#228b22'
+    }
+  },
+  {
+    displayName: 'Freesia',
+    name: 'freesia',
+    hexCodes: {
+      '50': '#fdf4d7',
+      '100': '#fceec3',
+      '200': '#fce8af',
+      '300': '#fbe39b',
+      '400': '#fadd87',
+      '500': '#f9d873',
+      '600': '#f8d25f',
+      '700': '#f7cc4b',
+      '800': '#f7c737',
+      '900': '#f6c324'
+    }
+  },
+  {
+    displayName: 'Honeysuckle',
+    name: 'honeysuckle',
+    hexCodes: {
+      '50': '#fbfbe5',
+      '100': '#f9f9d8',
+      '200': '#f8f7cb',
+      '300': '#f6f5be',
+      '400': '#f4f3b1',
+      '500': '#f2f1a4',
+      '600': '#f0ef97',
+      '700': '#eeed8a',
+      '800': '#eceb7d',
+      '900': '#eae86f'
+    }
+  },
+  {
+    displayName: 'Khaki',
+    name: 'khaki',
+    hexCodes: {
+      '50': '#f7f2c5',
+      '100': '#f4eca8',
+      '200': '#f0e68a',
+      '300': '#ecdf6d',
+      '400': '#e8d950',
+      '500': '#e5d333',
+      '600': '#dac71c',
+      '700': '#bdad19',
+      '800': '#a09215',
+      '900': '#857a11'
+    }
+  },
+  {
+    displayName: 'Hot Pink',
+    name: 'hot_pink',
+    hexCodes: {
+      '50': '#ffc3e1',
+      '100': '#ffa5d2',
+      '200': '#ff86c3',
+      '300': '#ff68b4',
+      '400': '#ff4aa5',
+      '500': '#ff2c96',
+      '600': '#ff0e86',
+      '700': '#ef0077',
+      '800': '#d10068',
+      '900': '#b00058'
+    }
+  },
+  {
+    displayName: 'Maroon',
+    name: 'Maroon',
+    hexCodes: {
+      '50': '#ffb9b9',
+      '100': '#ff9797',
+      '200': '#ff7474',
+      '300': '#ff5151',
+      '400': '#ff2e2e',
+      '500': '#ff0c0c',
+      '600': '#e80000',
+      '700': '#c50000',
+      '800': '#a20000',
+      '900': '#800000'
+    }
+  }          
+
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
 ].sort(dynamicSort('displayName'));
 
 let allThemes = colors.map((color)=>{
