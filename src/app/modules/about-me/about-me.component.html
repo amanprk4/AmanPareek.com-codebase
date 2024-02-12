@@ -5,7 +5,11 @@
       <div
         class="py-2 w-full flex justify-center text-primary-500 flex-col text-start"
       >
-        <span class="text-2xl mx-2 border-b border-solid border-gray-100 pb-2">About Me</span>
+        <span class="text-2xl mx-2 border-b border-solid border-gray-100 pb-2 flex items-center">
+          <i class="fa-regular fa-address-card text-primary-500 mr-2"></i>
+          <span>About Me</span>
+          
+        </span>
         <mat-radio-group (change)="changeBioLength($event)">
           <mat-radio-button
             [value]="radioButton.value"

@@ -39,7 +39,7 @@ export class HomeComponent {
     }
   }
   constructor( private cdref: ChangeDetectorRef, private localStorage : LocalstorageService ) {
-    this.selectedTheme = localStorage.getItem('selectedTheme') || 'teal';
+    this.selectedTheme = localStorage.getItem('selectedTheme') || 'burgundy';
   }   
 
   ngOnInit(): void {
