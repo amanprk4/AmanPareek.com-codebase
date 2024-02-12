@@ -1189,34 +1189,7 @@ export const colors: Color[] = [
       '800': '#a20000',
       '900': '#800000'
     }
-  }          
-
-
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
+  }
 ].sort(dynamicSort('displayName'));
 
 let allThemes = colors.map((color)=>{
@@ -1230,6 +1203,7 @@ let allThemes = colors.map((color)=>{
     }
   }
 })
+
 let baseTheme = {...allThemes[33]};
 baseTheme.selectors = [':root'];
 baseTheme.name = 'base'

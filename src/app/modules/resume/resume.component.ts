@@ -25,7 +25,7 @@ export class ResumeComponent {
       title: 'Senior Software Engineer',
       joinedFrom: '12/2021',
       joinedTill: 'Present',
-      duration: '2 years, 6 months+',
+      duration: '2 years, 2 months+',
       learnings: [
         `Developed a Unity demo application enabling Sales executives to <em>showcase products to prospective clients</em>, ensuring the utmost data privacy during presentations.`,
         `Spearheaded the creation of a Customer 360 platform, providing users with a <em>comprehensive view of customers </em> through identities, traits, events, and journeys`
@@ -39,7 +39,7 @@ export class ResumeComponent {
       title: 'Software Engineer',
       joinedFrom: '07/2019',
       joinedTill: '12/2021',
-      duration: '2 years, 5 months',
+      duration: '2 years, 6 months',
       learnings: [
         `Engineered an in-house Pricing Tool to automate incoming project revenue calculations, resulting in a <em>60% reduction in manual effort and time</em>. This streamlined financial project approvals significantly`,
         `Innovated a Valuation & Benchmarking Tool for financial clients, <em>enhancing efficiency by 50% and expanding user reach by 20%.</em>`,
