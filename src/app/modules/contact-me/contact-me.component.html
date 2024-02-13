@@ -1,4 +1,4 @@
-<div class="h-[calc(100vh-80px)] bg-white flex w-full overflow-y-scroll justify-center">
+<div class="h-[calc(100vh-80px)]  max-md:h-[calc(100vh-100px)] bg-white flex w-full overflow-y-scroll justify-center">
     <div class="flex flex-wrap h-full items-center overflow-y-scroll justify-center">
       <div
         class="m-3 flex flex-col h-[19rem] w-[19rem] justify-between"
@@ -8,12 +8,12 @@
         *ngFor="let contact of allContacts"
       >
         <span class="py-4 border-t border-solid border-t-primary-100 text-center rounded-t-xl text-3xl bg-white border-b border-b-gray-100">
-          <i [ngClass]="contact.iconClass" class="text-primary-500 text-3xl"></i>
+          <i [ngClass]="contact.iconClass" class="text-primary-900 text-3xl"></i>
           
           {{ contact.title }}</span>
         <span class="text-xl px-2 py-6 text-gray-500">{{ contact.message }}</span>
         <span
-          class="cursor-pointer shadow-md text-center border-b border-solid border-b-primary-100 rounded-b-xl py-5 px-2 text-primary-500 border-t border-t-gray-100 hover:text-white hover:bg-primary-500"
+          class="cursor-pointer shadow-md text-center border-b border-solid border-b-primary-100 rounded-b-xl py-5 px-2 text-primary-900 border-t border-t-gray-100 hover:text-white hover:bg-primary-500"
           (click)="openLinkInAnotherTab(contact.followLink)"
           >{{ contact.followMeMessage }} -></span
         >

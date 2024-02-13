@@ -5,13 +5,13 @@
     <app-header></app-header>
 
   <button
-    class="absolute bottom-10 z-10 right-10 rounded-full bg-white drop-shadow-lg text-primary-500 flex items-center p-2"
+    class="absolute bottom-10 z-10 right-10 rounded-full bg-white drop-shadow-lg text-primary-900 flex items-center p-2"
     (mouseenter)="isHidden = !isHidden"
     (mouseleave)="isHidden = !isHidden"
     [matMenuTriggerFor]="menu"
   >
     <span
-      class="text-primary-500 mx-2 transition-all"
+      class="text-primary-900 mx-2 transition-all"
       [@enterAnimation]
       *ngIf="isHidden"
       >Select Theme</span>
@@ -19,15 +19,16 @@
   </button>
 
   <div
-    class="h-[calc(100vh-80px)]"
+    class="h-[calc(100vh-80px)]  max-md:h-[calc(100vh-100px)]"
     [@routeAnimations]="getAnimationData(rOutlet)"
   >
     <router-outlet #rOutlet="outlet"></router-outlet>
   </div>
 
-<mat-menu #menu="matMenu" class="!mb-4 !bg-white/50 !shadow-none border border-solid border-gray-100">
+<mat-menu #menu="matMenu" class="!mb-12 mr-12 mt-4 !bg-white/50 !shadow-none border border-solid border-gray-100">
   <button
     mat-menu-item
+    class="!flex !justify-end"
     *ngFor="let color of colors; index as idx"
     (click)="onThemeSelection(color)"
   >
@@ -36,7 +37,7 @@
         '--color500': color.hexCodes[500],
         '--color50': color.hexCodes[50]
       }"
-      class="bg-[var(--color500)] px-4 rounded !w-fit h-8 flex items-center justify-between"
+      class="bg-[var(--color500)] px-4 rounded !w-fit h-8 flex items-center justify-between text-right"
     >
     <span class="text-white">{{idx+1}}. {{ color.displayName }}</span>
     <i *ngIf="selectedTheme === color.name" class="fa-solid fa-circle-check !text-white mx-4"></i>

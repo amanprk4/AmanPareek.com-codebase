@@ -10,8 +10,8 @@
     <div class="flex flex-col ml-2 justify-start">
         <div class="flex justify-between items-center">
             <span class="text-black text-3xl">Aman Pareek</span>
-            <a target="_blank" class="cursor-pointer text-center rounded-xl py-2 px-4 border border-solid border-gray-200 text-primary-500 hover:text-white hover:bg-primary-500 [&_i]:hover:text-white" href="../../../assets/documents/Frontend_developer_AmanPareek.pdf">
-                <i class="fa-solid fa-file-arrow-down text-primary-500"></i>
+            <a target="_blank" class="cursor-pointer text-center rounded-xl py-2 px-4 border border-solid border-gray-200 text-primary-900 hover:text-white hover:bg-primary-500 [&_i]:hover:text-white" href="../../../assets/documents/Frontend_developer_AmanPareek.pdf">
+                <i class="fa-solid fa-file-arrow-down text-primary-900"></i>
                 Download
             </a>
         </div>
@@ -19,7 +19,7 @@
       <span class="text-black text-xl my-2 border-b border-solid border-gray-100 pb-2">
         Senior Software Engineer at Zeotap</span
       >
-      <span class="text-gray-500 text-base [&_em]:text-primary-500 [&_em]:font-bold">
+      <span class="text-gray-500 text-base [&_em]:text-primary-900 [&_em]:font-bold">
         Dynamic Senior Software Engineer with <em>4.5+ years</em> of expertise in <em>Angular
           and frontend development.</em>  Proven track record of driving impactful
         projects, creating scalable, user-centric solutions, and contributing to
@@ -36,7 +36,7 @@
     class="flex flex-col my-4 rounded-lg border border-solid border-primary-100 py-4"
   >
     <span class="text-black text-xl mx-4 mb-4 border-b border-solid border-gray-100 pb-2">
-      <i class="fa-solid fa-screwdriver-wrench text-primary-500 mr-2"></i>
+      <i class="fa-solid fa-screwdriver-wrench text-primary-900 mr-2"></i>
       Skills</span
     >
     <div class="flex flex-wrap mx-2">
@@ -54,7 +54,7 @@
     class="flex flex-col my-4 rounded-lg border border-solid border-primary-100 py-4"
   >
     <span class="text-black text-xl mx-4 mb-4 border-b border-solid border-gray-100 pb-2">
-      <i class="fa-solid fa-briefcase text-primary-500 mr-2"></i>
+      <i class="fa-solid fa-briefcase text-primary-900 mr-2"></i>
       Experience</span>
 
     <div class="flex flex-col">
@@ -63,20 +63,20 @@
         class="flex flex-col mx-4 border-x border-primary-500 bg-primary-50/10 drop-shadow-sm border-solid mb-4 p-4 rounded-xl"
       >
       <div class="text-black text-lg mb-2">
-        {{ experience.title }} at <span class="text-primary-500 font-bold hover:text-primary-600 cursor-pointer" (click)="openCompanyLink(experience.link)">{{ experience.companyName }}</span>
+        {{ experience.title }} at <span class="text-primary-900 font-bold hover:text-primary-600 cursor-pointer" (click)="openCompanyLink(experience.link)">{{ experience.companyName }}</span>
       </div>
       <div class="text-gray-500 text-xs italic mb-2">
         {{ experience.companyInfo }}
       </div>
       <div class="text-gray-500 flex justify-between mb-2">
-        <span>{{experience.joinedFrom}} - {{experience.joinedTill}} <span class="text-primary-500 font-bold">( {{experience.duration}} )</span> </span>
+        <span>{{experience.joinedFrom}} - {{experience.joinedTill}} <span class="text-primary-900 font-bold">( {{experience.duration}} )</span> </span>
         <span>{{experience.location}}</span>
       </div>
 
       <div class="flex flex-col">
         <span class="text-primary-900 text-base mb-2 border-b border-solid border-gray-100 pb-2">Learnings</span>
         <div *ngFor="let learning of experience.learnings" class="mb-4">
-          <i class="fa-solid fa-chevron-right text-primary-500 mr-2"></i> <span class="text-gray-500 [&_em]:text-primary-500 [&_em]:font-bold" [innerHTML]="learning"></span>
+          <i class="fa-solid fa-chevron-right text-primary-900 mr-2"></i> <span class="text-gray-500 [&_em]:text-primary-900 [&_em]:font-bold" [innerHTML]="learning"></span>
         </div>
       </div>
 
@@ -88,7 +88,7 @@
 
   <div class="flex flex-col my-4 rounded-lg border border-solid border-primary-100 py-4">
     <span class="text-black text-xl mx-4 mb-4 border-b border-solid border-gray-100 pb-2">
-        <i class="fa-solid fa-graduation-cap text-primary-500 mr-2"></i>
+        <i class="fa-solid fa-graduation-cap text-primary-900 mr-2"></i>
         Education</span>
 
     <div class="flex flex-col">
@@ -97,13 +97,13 @@
         class="flex flex-col mx-4 border-x border-primary-500 bg-primary-50/10 drop-shadow-sm border-solid mb-4 p-4 rounded-xl"
       >
       <div class="text-black text-lg mb-2">
-        {{ education.degreeName }} <span *ngIf="education.specialization">in {{education.specialization}}</span> at <span class="text-primary-500 font-bold" [ngClass]="{' hover:text-primary-600 cursor-pointer': education.link}" (click)="openCompanyLink(education.link)">{{ education.instituteName }}</span>
+        {{ education.degreeName }} <span *ngIf="education.specialization">in {{education.specialization}}</span> at <span class="text-primary-900 font-bold" [ngClass]="{' hover:text-primary-600 cursor-pointer': education.link}" (click)="openCompanyLink(education.link)">{{ education.instituteName }}</span>
       </div>
       <div class="text-gray-500 flex justify-between mb-2">
         <span>{{education.fromTo}}</span>
         <span>{{education.location}}</span>
       </div>
-      <div class="text-primary-500 font-bold">
+      <div class="text-primary-900 font-bold">
         Grade - {{education.gradePoint}}
       </div>
 
@@ -117,7 +117,7 @@
   class="flex flex-col my-4 rounded-lg border border-solid border-primary-100 py-4"
 >
   <span class="text-black text-xl mx-4 mb-4 border-b border-solid border-gray-100 pb-2">
-    <i class="fa-solid fa-mountain-sun text-primary-500 mr-2"></i>
+    <i class="fa-solid fa-mountain-sun text-primary-900 mr-2"></i>
     Interests</span
   >
   <div class="flex flex-wrap mx-2">
