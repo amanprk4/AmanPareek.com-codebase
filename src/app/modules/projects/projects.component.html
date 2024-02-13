@@ -1,0 +1,8 @@
+<div class="h-[calc(100vh-80px)] bg-white flex w-full overflow-y-scroll justify-center p-4">
+    <div class="flex justify-center items-center flex-wrap">
+        <div *ngFor="let textToShow of allTexts" class="p-4 border border-primary-50 border-solid rounded-lg mr-4 mb-4 hover:scale-125 bg-white shadow-sm hover:z-10 flex flex-col">
+            <span class="!text-xl text-center my-2" [style.color]="textToShow.color"> {{textToShow.text}} </span>
+            <span class="text-gray-500 !text-sm text-left"> {{textToShow.language}} </span>
+        </div>
+    </div>
+</div>

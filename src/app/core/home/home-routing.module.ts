@@ -35,6 +35,16 @@ const routes: Routes = [
       },
 
       {
+        path: 'projects',
+        loadChildren: () =>
+          import('../../modules/projects/projects.module').then(
+            (m) => m.ProjectsModule
+          ),
+          data:{animation:{page:'projects'}}
+
+      },
+
+      {
         path:'',
         redirectTo:"resume",
         pathMatch:'full'

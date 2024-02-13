@@ -32,11 +32,14 @@ export const slider =
     transition('* => resume', slideTo('left') ),
     transition('resume => aboutMe', slideTo('right') ),
     transition('aboutMe => resume', slideTo('left') ),
+    transition('aboutMe => projects', slideTo('left') ),
+    transition('projects => contactMe', slideTo('left') ),
 
     transition('* => aboutMe', slideTo('left') ),
     transition('* => contactMe', slideTo('right') ),
     transition('contactMe => aboutMe', slideTo('left') ),
     transition('aboutMe => contactMe', slideTo('right') ),
+    transition('contactMe => projects', slideTo('right') ),
   ]);
 
 function slideTo(direction:any) {

@@ -14,7 +14,7 @@ import { LocalstorageService } from '../services/localstorage';
     trigger(
       'enterAnimation', [
         transition(':enter', [
-          style({transform: 'translateX(100%)', opacity: 0}),
+          style({transform: 'translateX(-100%)', opacity: 0}),
           animate('500ms', style({transform: 'translateX(0)', opacity: 1}))
         ]),
         // transition(':leave', [

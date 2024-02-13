@@ -15,6 +15,10 @@ export class HeaderComponent {
       routeLink: "/home/about-me",
     },
     {
+      name: ".exploreProjects()",
+      routeLink: "/home/projects",
+    },
+    {
       name: ".reachOut()",
       routeLink: "/home/contact-me",
     },
