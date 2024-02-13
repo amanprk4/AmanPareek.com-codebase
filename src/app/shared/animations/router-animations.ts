@@ -29,17 +29,26 @@ export const fader =
 
 export const slider =
   trigger('routeAnimations', [
-    transition('* => resume', slideTo('left') ),
-    transition('resume => aboutMe', slideTo('right') ),
-    transition('aboutMe => resume', slideTo('left') ),
-    transition('aboutMe => projects', slideTo('left') ),
-    transition('projects => contactMe', slideTo('left') ),
 
-    transition('* => aboutMe', slideTo('left') ),
-    transition('* => contactMe', slideTo('right') ),
-    transition('contactMe => aboutMe', slideTo('left') ),
+    // Resume
+    transition('resume => aboutMe', slideTo('right') ),
+    transition('resume => projects', slideTo('right') ),
+    transition('resume => contactMe', slideTo('right') ),
+
+    // about me
+    transition('aboutMe => resume', slideTo('left') ),
+    transition('aboutMe => projects', slideTo('right') ),
     transition('aboutMe => contactMe', slideTo('right') ),
-    transition('contactMe => projects', slideTo('right') ),
+
+    // Projects
+    transition('projects => resume', slideTo('left') ),
+    transition('projects => aboutMe', slideTo('left') ),
+    transition('projects => contactMe', slideTo('right') ),
+
+    // Contact Me
+    transition('contactMe => resume', slideTo('left') ),
+    transition('contactMe => aboutMe', slideTo('left') ),
+    transition('contactMe => projects', slideTo('left') ),
   ]);
 
 function slideTo(direction:any) {
