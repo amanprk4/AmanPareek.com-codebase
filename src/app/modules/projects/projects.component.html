@@ -1,6 +1,6 @@
 <div class="h-[calc(100vh-80px)]  max-md:h-[calc(100vh-100px)] bg-white flex w-full overflow-y-scroll justify-center p-4">
     <div class="flex justify-center items-center flex-wrap">
-        <div *ngFor="let textToShow of allTexts" class="p-4 border-gray-200 border-y bg-white border-solid rounded-lg mr-4 mb-4 hover:scale-110 shadow-sm hover:z-[2] hover:border-black flex flex-col">
+        <div *ngFor="let textToShow of allTexts" class="p-4 border-gray-200 border-y bg-white border-solid rounded-lg mr-4 mb-4 hover:scale-110 shadow-sm hover:z-[2] hover:border-primary-900 flex flex-col">
             <span class="!text-xl text-center my-2" [style.color]="textToShow.color"> {{textToShow.text}} </span>
             <span class="text-gray-500 !text-sm flex items-center px-2 bg-primary-50/50 w-fit rounded mt-2"> 
                 <img width="18" height="18" class="mr-2" [src]="textToShow.flag"/>

@@ -94,6 +94,16 @@ export class ProjectsComponent implements OnInit{
       language: 'Sanskrit',
       text: 'शीघ्रमेव महान् विषयः आगमिष्यति.... :)',
       flag:"https://flagcdn.com/in.svg"
+    },
+    {
+      language: 'Portuguese',
+      text: 'Grandes coisas em breve.... :)',
+      flag:"https://flagcdn.com/pt.svg"
+    },
+    {
+      language: 'Italian',
+      text: 'Grandi cose in arrivo... :)',
+      flag:"https://flagcdn.com/it.svg"
     }
   ];
   themes = themes.map(x=>x.theme.colors.primary[900]);

@@ -1,28 +1,28 @@
 <div class="flex justify-between !bg-white p-5 items-center border-b border-solid border-primary-100" >
   <div class="flex">
     <div class="flex mx-3 items-center border-r border-solid border-primary-500 pr-4">
-      <i class="fa-solid fa-map-pin text-2xl text-primary-900 mr-2"></i>
+      <i class="fa-solid fa-map-pin text-2xl text-primary-700 mr-2"></i>
       <span class="flex items-center text-base text-black max-md:hidden">
         {{ currentLocation }}
       </span>
-      <span class="flex items-center text-base text-primary-900 md:hidden">
+      <span class="flex items-center text-base text-primary-700 md:hidden">
         {{ currentLocationSmall }}
       </span>
     </div>
 
     <div class="flex mx-3 items-center">
       <div class="current-working-icon">
-        <i class="fa-solid fa-briefcase text-primary-900 text-2xl"></i>
+        <i class="fa-solid fa-briefcase text-primary-700 text-2xl"></i>
       </div>
       <span class="flex items-center text-base flex-col ml-3 max-md:flex-row">
         <span class="text-black max-md:hidden">{{ currentProfessionTitle }}</span>
         <span class="text-black md:hidden">{{currentProfessionTitleSmall}}</span>
         <a
-          class="cursor-pointer text-left w-full text-primary-900 hover:text-primary-600 flex items-center"
+          class="cursor-pointer text-left w-full text-primary-700 hover:text-primary-600 flex items-center"
           target="_blank"
           [href]="currentCompanyLink"
         >
-        <span class="text-primary-900">&#64;&#160; </span>
+        <span class="text-primary-700">&#64;&#160; </span>
            {{ currentlyWorkingIn }}</a>
       </span>
     </div>
@@ -35,7 +35,7 @@
     <div
       class="mx-5 text-base cursor-pointer text-black focus:outline-none hover:text-primary-600"
       [routerLink]="[route.routeLink]"
-      routerLinkActive="!scale-125 !text-primary-900 border-b border-solid border-primary-50 pb-2"
+      routerLinkActive="!scale-125 !text-primary-700 border-b border-solid border-primary-50 pb-2"
       *ngFor="let route of rightNotificationItems"
     >
       {{ route.name }}
@@ -52,7 +52,7 @@
         mat-menu-item
         class="mx-5 text-xl !cursor-pointer !text-black !focus:outline-none !hover:text-primary-600"
         [routerLink]="[route.routeLink]"
-        routerLinkActive="!text-2xl !text-primary-900"
+        routerLinkActive="!text-2xl !text-primary-700"
         *ngFor="let route of rightNotificationItems"
       >
       <span class="!font-base">

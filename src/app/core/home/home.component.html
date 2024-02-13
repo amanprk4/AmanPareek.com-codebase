@@ -5,13 +5,13 @@
     <app-header></app-header>
 
   <button
-    class="absolute bottom-10 z-10 right-10 rounded-full bg-white drop-shadow-lg text-primary-900 flex items-center p-2"
+    class="absolute bottom-10 z-10 right-10 rounded-full bg-white drop-shadow-lg text-primary-700 flex items-center p-2"
     (mouseenter)="isHidden = !isHidden"
     (mouseleave)="isHidden = !isHidden"
     [matMenuTriggerFor]="menu"
   >
     <span
-      class="text-primary-900 mx-2 transition-all"
+      class="text-primary-700 mx-2 transition-all"
       [@enterAnimation]
       *ngIf="isHidden"
       >Select Theme</span>
@@ -25,7 +25,7 @@
     <router-outlet #rOutlet="outlet"></router-outlet>
   </div>
 
-<mat-menu #menu="matMenu" class="!mb-12 mr-12 mt-4 !bg-white/50 !shadow-none border border-solid border-gray-100">
+<mat-menu #menu="matMenu" class="!mb-12 mr-12 mt-4 !bg-white/50 !shadow-none border border-solid p-2 border-gray-100">
   <button
     mat-menu-item
     class="!flex !justify-end"
