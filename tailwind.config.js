@@ -16,7 +16,7 @@ module.exports = {
       fontFamily: {
         'base': "'Chalkduster', sans-serif"
       }
-    }
+    },
   },
   safelist: colors.map(color => color.name)
 }

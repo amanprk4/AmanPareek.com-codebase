@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResumeBuilderComponent } from './resume-builder.component';
+import { SocialInfoFormComponent } from './social-info-form.component';
 
-describe('ResumeBuilderComponent', () => {
-  let component: ResumeBuilderComponent;
-  let fixture: ComponentFixture<ResumeBuilderComponent>;
+describe('SocialInfoFormComponent', () => {
+  let component: SocialInfoFormComponent;
+  let fixture: ComponentFixture<SocialInfoFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ResumeBuilderComponent]
+      imports: [SocialInfoFormComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ResumeBuilderComponent);
+    fixture = TestBed.createComponent(SocialInfoFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-error-404',
@@ -6,9 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './tsrmosbja.scss'
 })
 export class Error404Component {
+
+  constructor(private router: Router){
+
+  }
 // Go to home
 goToHome()
 {
-  console.log("Go to Home is clicked");
+  this.router.navigateByUrl('home')
 }
 }

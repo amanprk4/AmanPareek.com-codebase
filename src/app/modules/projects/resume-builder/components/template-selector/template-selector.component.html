@@ -1,0 +1,8 @@
+<div class="flex p-2 border border-solid border-gray-200 rounded mb-4 cursor-pointer items-center justify-between"
+[ngClass]="{'border-primary-700 bg-primary-50/25 scale-105 drop-shadow':isSelected}"
+    (click)="onTemplateClick.emit(templateDetails)">
+    <i [ngClass]="templateDetails.icon" class="text-primary-700 mr-4"></i>
+    <span
+    [ngClass]="{'text-primary-900':isSelected}"
+    >{{templateDetails.displayName}}</span>
+</div>

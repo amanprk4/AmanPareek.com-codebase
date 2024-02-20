@@ -1,4 +1,4 @@
-<div class="flex p-4 w-full h-full px-6 flex-col overflow-y-scroll">
+<div class="flex p-4 w-full h-full px-6 flex-col overflow-y-scroll" id="resumeWrapper">
   <!-- Basic info row -->
   <div
     class="flex rounded-lg border border-solid border-primary-100 py-4 px-2 my-4 max-md:flex-col max-md:justify-center max-md:items-center"
@@ -10,10 +10,7 @@
     <div class="flex flex-col ml-2 justify-start">
         <div class="flex justify-between items-center">
             <span class="text-black text-3xl">Aman Pareek</span>
-            <a target="_blank" class="cursor-pointer text-center rounded-xl py-2 px-4 border border-solid border-gray-200 text-primary-700 hover:text-white hover:bg-primary-500 [&_i]:hover:text-white" href="../../../assets/documents/Frontend_developer_AmanPareek.pdf">
-                <i class="fa-solid fa-file-arrow-down text-primary-700"></i>
-                Download
-            </a>
+            <app-custom-button buttonName="Download" linkToOpen="../../../assets/documents/Frontend_developer_AmanPareek.pdf" iconClass="fa-solid fa-file-arrow-down" ></app-custom-button>
         </div>
 
       <span class="text-black text-xl my-2 border-b border-solid border-gray-100 pb-2">

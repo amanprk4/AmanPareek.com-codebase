@@ -1,1 +1,53 @@
-<p>resume-builder works!</p>
+<div class="bg-white flex w-full overflow-y-scroll px-4 pb-4 h-full flex-col" *ngIf="{
+  isInformationFormDialogOpen:isInformationFormDialogOpen$ | async
+} as data">
+  <div class="my-2 flex items-center justify-between">
+    <app-custom-header-link [headerLinkItems]="headerLinkItems"></app-custom-header-link>
+    <div class="flex items-center">
+      <app-custom-button class="mr-2" iconClass="fa-regular fa-floppy-disk" buttonName="Save Info" (onButtonClickEvent)="saveInformation()" ></app-custom-button>
+      <app-custom-button iconClass="fa-regular fa-file-pdf" buttonName="Download" (onButtonClickEvent)="downloadResume()" ></app-custom-button>
+    </div>
+  </div>
+
+
+  <div class="flex h-full w-full">
+  <!-- Template selector -->
+  <div class="flex flex-col px-4">
+    <div class="flex justify-between items-center mb-4 border-y rounded border-solid border-gray-200 py-2 shadow-md px-2">
+      <div class="text-primary-700 flex items-center">
+        <i class="fa-solid fa-brush text-primary-700 text-lg" [@slideInOut] *ngIf="isTemplateSelectionExpanded"></i>
+        <span *ngIf="isTemplateSelectionExpanded" [@slideInOut] class="text-lg ml-2">Templates</span>
+      </div>
+
+      <div (click)="onTemplateExpandButtonClick()" class="cursor-pointer">
+        <i class="fa-solid fa-square-caret-left text-primary-700 text-lg" *ngIf="isTemplateSelectionExpanded"></i>
+        <i class="fa-solid fa-square-caret-right text-primary-700 text-lg" *ngIf="!isTemplateSelectionExpanded"></i>
+      </div>
+
+    </div>
+
+    <div *ngIf="isTemplateSelectionExpanded" [@slideInOut]>
+      <div  *ngFor="let template of allTemplates">
+        <app-template-selector [templateDetails]="template" [isSelected]="template.name === selectedTemplate" (onTemplateClick)="onTemplateClick(template)" ></app-template-selector>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Content -->
+  <div class="flex flex-1 rounded border border-solid border-gray-200 overflow-y-scroll h-full p-4">
+    <div [ngSwitch]="selectedTemplate" class="w-full">
+      <app-brew-master *ngSwitchCase="'brewMaster'" [informationFormGroup]="informationFormGroup" (openForm)="onResumeItemClick($event)"></app-brew-master>
+      <app-gin-genius *ngSwitchCase="'ginGenius'" [informationFormGroup]="informationFormGroup"></app-gin-genius>
+      <app-martini-maven *ngSwitchCase="'martiniMaven'" [informationFormGroup]="informationFormGroup"></app-martini-maven>
+      <app-whiskey-whisperer *ngSwitchCase="'whiskeyWhisperer'" [informationFormGroup]="informationFormGroup"></app-whiskey-whisperer>
+      <app-wine-wizardry *ngSwitchCase="'wineWizardry'" [informationFormGroup]="informationFormGroup"></app-wine-wizardry>
+    </div>
+  </div>
+  </div>
+
+
+  <app-basic-info-form *ngIf="data.isInformationFormDialogOpen" (onClose)="closeInformationForm()" ></app-basic-info-form>
+</div>
+
+

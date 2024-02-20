@@ -38,7 +38,7 @@ export class LocalstorageService implements Storage {
     this.storage.clear();
   }
 
-  getItem(key: string): string | null {
+  getItem(key: string): any | null {
     return this.storage.getItem(key);
   }
 
@@ -50,7 +50,7 @@ export class LocalstorageService implements Storage {
     return this.storage.removeItem(key);
   }
 
-  setItem(key: string, value: string): void {
+  setItem(key: string, value: any): void {
     return this.storage.setItem(key, value);
   }
 }
