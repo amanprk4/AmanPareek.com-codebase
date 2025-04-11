@@ -10,20 +10,14 @@
     <div class="flex flex-col ml-2 justify-start">
         <div class="flex justify-between items-center">
             <span class="text-black text-3xl">Aman Pareek</span>
-            <app-custom-button buttonName="Download" linkToOpen="../../../assets/documents/_aman_pareek_full_stack_resume.pdf" iconClass="fa-solid fa-file-arrow-down" ></app-custom-button>
+            <app-custom-button buttonName="Download" linkToOpen="../../../assets/documents/aman_pareek_resume.pdf" iconClass="fa-solid fa-file-arrow-down" ></app-custom-button>
         </div>
 
       <span class="text-black text-xl my-2 border-b border-solid border-gray-100 pb-2">
         Senior Software Engineer at Zeotap</span
       >
       <span class="text-gray-500 text-base [&_em]:text-primary-700 [&_em]:font-bold">
-        Experienced <em>Full-stack developer</em> with over <em>4.8 years</em> of expertise in <em>JavaScript,
-          Angular, React, NodeJs, Next.Js</em> and front-end development. Demonstrated track record
-          of leading impactful projects and developing scalable solutions. Proficient in translating
-           designs into pixel-perfect UIs that <em>enhance user experience</em>. Strong emphasis on <em>optimizing
-            website performance</em> and accessibility, resulting in improved engagement. Skilled collaborator
-            within cross- functional teams, consistently meeting project milestones and business objectives.
-             Committed to staying abreast of industry trends and delivering significant results.
+        Experienced <em>Frontend Developer</em> with around <em>6 years</em> of expertise in building scalable, high-performance web applications using modern technologies like <em>Angular, React, Tailwind CSS, and Node.js</em>. Adept at leading innovative projects, optimizing web performance, and mentoring team members. Proven success in delivering impactful solutions for customer-facing products and enterprise platforms. Proficient in implementing <em>BFF layers, custom component libraries, and AI-powered features</em>, driving efficiency and user engagement. Strong advocate for clean code, best practices, and collaboration, with a passion for frontend-focused or full-stack roles in product-based organizations.
       </span>
     </div>
   </div>
@@ -39,7 +33,7 @@
     <div class="flex flex-wrap mx-2">
       <div
         *ngFor="let skill of skillsList"
-        class="m-2 px-4 py-2 rounded-l-xl rounded-r-xl bg-primary-50/25 border border-solid border-primary-500 text-black text-sm"
+        class="m-2 px-4 py-2 rounded-l-xl rounded-r-xl bg-primary-50/25 border border-solid border-primary-500 text-black text-sm hover:text-white hover:bg-primary-500 [&_i]:hover:text-white"
       >
         {{ skill }}
       </div>
@@ -94,7 +88,7 @@
         class="flex flex-col mx-4 border-x border-primary-500 bg-primary-50/10 drop-shadow-sm border-solid mb-4 p-4 rounded-xl"
       >
       <div class="text-black text-lg mb-2">
-        {{ education.degreeName }} <span *ngIf="education.specialization">in {{education.specialization}}</span> at <span class="text-primary-700 font-bold" [ngClass]="{' hover:text-primary-600 cursor-pointer': education.link}" (click)="openCompanyLink(education.link)">{{ education.instituteName }}</span>
+        {{ education.degreeName }} <span *ngIf="education.specialization">in {{education.specialization}}</span> at <span class="text-primary-700 font-bold" [ngClass]="{' hover:text-primary-600 cursor-pointer': education.link}" (click)="openCompanyLink(education.link || '')">{{ education.instituteName }}</span>
       </div>
       <div class="text-gray-500 flex justify-between mb-2">
         <span>{{education.fromTo}}</span>
@@ -120,7 +114,7 @@
   <div class="flex flex-wrap mx-2">
     <div
       *ngFor="let interest of interestList"
-      class="m-2 px-4 py-2 rounded-l-xl rounded-r-xl bg-primary-50/20 border border-solid border-primary-500 text-black text-sm"
+      class="m-2 px-4 py-2 rounded-l-xl rounded-r-xl bg-primary-50/20 border border-solid border-primary-500 text-black text-sm hover:text-white hover:bg-primary-500 [&_i]:hover:text-white"
     >
       {{ interest }}
     </div>

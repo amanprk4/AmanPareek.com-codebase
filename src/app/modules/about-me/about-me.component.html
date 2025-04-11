@@ -36,8 +36,49 @@
 
   <!-- Image slider -->
   <div class="flex flex-1">
-    <div class="flex justify-center flex-col mx-6 max-md:m-auto max-md:w-3/4 max-md:my-4">
-      <img class="border border-primary-100 border-solid p-4 rounded-xl bg-primary-50/10" src="../../../assets/images/pic_1.jpg" >
+    <div class="flex justify-center flex-col mx-6 max-md:m-auto max-md:w-3/4 max-md:my-4 relative">
+            <!-- Navigation controls -->
+            <div class="w-full flex items-center justify-between">
+              <app-custom-button 
+                (onButtonClickEvent)="previousImage()" 
+                iconClass="fa-solid fa-chevron-left"
+                buttonName="Previous">
+              </app-custom-button>
+              <app-custom-button 
+                (onButtonClickEvent)="nextImage()" 
+                iconClass="fa-solid fa-chevron-right"
+                buttonName="Next">
+              </app-custom-button>
+            </div>
+      <!-- Image container -->
+      <div class="relative overflow-hidden rounded-xl w-[500px] h-[550px] my-2">
+        <!-- Loading spinner -->
+        <div *ngIf="isLoading" class="absolute inset-0 flex items-center justify-center bg-gray-100">
+          <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-700"></div>
+        </div>
+        
+        <!-- Blurred background image -->
+        <div class="absolute inset-0 w-full h-full" *ngIf="!isLoading">
+          <img 
+            [src]="getCurrentImage()" 
+            class="w-full h-full object-cover blur-lg scale-110"
+            alt="Background">
+        </div>
+        <!-- Main image -->
+        <img 
+          *ngIf="!isLoading"
+          [@slideInOut]="animationState"
+          [src]="getCurrentImage()" 
+          class="absolute inset-0 w-full h-full object-contain p-4 transition-transform duration-300 z-10"
+          alt="Profile image">
+      </div>
+
+      <!-- Navigation controls -->
+      <div class="w-full flex items-center justify-center">
+        <div class="bg-primary-700 text-white px-3 py-1 rounded-full text-sm" *ngIf="!isLoading">
+          {{currentImageIndex + 1}} / {{images.length}}
+        </div>
+      </div>
     </div>
   </div>
 
