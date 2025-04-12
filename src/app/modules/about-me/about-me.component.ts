@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
+import { SeoService } from '../../core/services/seo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about-me',
@@ -54,18 +56,20 @@ export class AboutMeComponent implements OnInit {
   isLoading = true;
   animationState = 'inRight';
   
+  // Shuffled images array
   images = [
-    'pic_1.jpg',
     'resume_pic.jpeg',
     'IMG_9096.jpg',
+    'pic_1.jpg',
     'IMG_5947.JPG',
+    '1000100539 (1).jpg',
     'IMG_5934 (1).JPG',
     'IMG_5916.JPG',
     'BB868EDD-E30A-4B5E-92F4-830D48C09326.jpg',
-    '1000100539 (1).jpg',
     '1000057004.jpg',
     '180d4040-45ba-4e84-8b9e-c5415da82ac5.jpg',
-    '4D976999-0EF2-47FF-92FA-BE8BD0DC78D4.jpeg'
+    '4D976999-0EF2-47FF-92FA-BE8BD0DC78D4.jpeg',
+    '1000070095.jpg'
   ];
 
   radioButtons = [
@@ -75,16 +79,43 @@ export class AboutMeComponent implements OnInit {
   ];
 
   aboutMeBio: Record<'short' | 'medium' | 'long', string> = {
-    short: `Hi! I'm <em>Aman Pareek</em>, a passionate <em>Frontend Developer</em> with 6 years of experience crafting beautiful and performant web applications. I specialize in <em>Angular</em> and <em>React</em>, with a strong focus on creating intuitive user experiences.`,
-    medium: `Hi! I'm <em>Aman Pareek</em>, a passionate <em>Frontend Developer</em> with 6 years of experience crafting beautiful and performant web applications. I specialize in <em>Angular</em> and <em>React</em>, with a strong focus on creating intuitive user experiences. My journey in web development started with a curiosity about how things work on the internet, which led me to dive deep into frontend technologies. I believe in writing clean, maintainable code and staying updated with the latest web development trends.`,
-    long: `Hi! I'm <em>Aman Pareek</em>, a passionate <em>Frontend Developer</em> with 6 years of experience crafting beautiful and performant web applications. I specialize in <em>Angular</em> and <em>React</em>, with a strong focus on creating intuitive user experiences. My journey in web development started with a curiosity about how things work on the internet, which led me to dive deep into frontend technologies. I believe in writing clean, maintainable code and staying updated with the latest web development trends. When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, and sharing my knowledge with the developer community. I'm always excited to take on new challenges and learn from every experience.`
+    short: `Hi, I'm <em>Aman Pareek</em> — a <em>Frontend Developer</em> with 6+ years of experience building sleek, high-performance web apps using <em>Angular</em> and <em>React</em>. I'm passionate about clean code, great UX, and always exploring what's next in web tech.`,
+    medium: `Hello, I'm <em>Aman Pareek</em>—a dedicated <em>Frontend Developer</em> with six years of hands-on experience in <em>Angular</em> and <em>React</em>. My journey began with a deep curiosity for how the web works, which evolved into a commitment to craft clean, maintainable code and innovative user experiences. I thrive on tackling challenging projects, exploring emerging trends, and collaborating with creative teams to bring ideas to life.`,
+    long: `Hi there! I'm <em>Aman Pareek</em>, a seasoned <em>Frontend Developer</em> driven by creativity and a relentless passion for design. With six years of experience under my belt, I specialize in <em>Angular</em> and <em>React</em>, focusing on transforming complex requirements into polished, user-friendly interfaces. My journey started from a simple wonder about the inner workings of the internet and has since evolved into a deep commitment to excellence in coding and design. I'm committed to writing clean, scalable code while staying ahead of the curve by constantly learning new technologies and trends. Beyond coding, I enjoy contributing to open-source projects, engaging with the developer community, and speaking at meetups where ideas flourish. Whether you're looking for intuitive user experiences or a collaborative spirit to overcome complex challenges, I'm always ready to innovate and elevate digital experiences.`
   };
+
+  constructor(
+    private seoService: SeoService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     // Load a random image on initialization
     this.loadRandomImage();
-    // Preload all images
-    this.preloadImages();
+    
+    // Set SEO metadata
+    this.updateSeoData();
+    
+    // Start preloading images in the background
+    setTimeout(() => {
+      this.preloadImages();
+    }, 0);
+  }
+
+  private updateSeoData(): void {
+    const title = 'About Aman Pareek | Frontend Developer';
+    const description = 'Learn about Aman Pareek, a passionate Frontend Developer with 6 years of experience in Angular and React. Discover my journey, skills, and expertise in web development.';
+    const image = 'https://amanpareek.com/assets/images/resume_pic.jpeg';
+    const url = `https://amanpareek.com${this.router.url}`;
+    const keywords = 'Aman Pareek, Frontend Developer, Angular, React, Web Development, Portfolio';
+    
+    this.seoService.setSeoData({
+      title,
+      description,
+      image,
+      url,
+      keywords
+    });
   }
 
   private loadRandomImage(): void {
@@ -95,30 +126,36 @@ export class AboutMeComponent implements OnInit {
     this.isLoading = true;
     let loadedCount = 0;
     
-    this.images.forEach(imageName => {
-      const img = new Image();
-      img.src = `../../../assets/images/${imageName}`;
+    // Prioritize loading the current image first
+    const currentImage = this.images[this.currentImageIndex];
+    this.loadImage(currentImage, () => {
+      loadedCount++;
+      this.isLoading = false; // Allow the slider to be interactive after the first image loads
       
-      img.onload = () => {
-        this.preloadedImages[imageName] = img;
-        loadedCount++;
-        
-        // When all images are loaded, set isLoading to false
-        if (loadedCount === this.images.length) {
-          this.isLoading = false;
+      // Then load the rest of the images in the background
+      this.images.forEach((imageName, index) => {
+        if (index !== this.currentImageIndex) {
+          this.loadImage(imageName, () => {
+            loadedCount++;
+          });
         }
-      };
-      
-      img.onerror = () => {
-        console.error(`Failed to load image: ${imageName}`);
-        loadedCount++;
-        
-        // Even if some images fail, we still want to show the slider
-        if (loadedCount === this.images.length) {
-          this.isLoading = false;
-        }
-      };
+      });
     });
+  }
+  
+  private loadImage(imageName: string, callback: () => void): void {
+    const img = new Image();
+    img.src = `../../../assets/images/${imageName}`;
+    
+    img.onload = () => {
+      this.preloadedImages[imageName] = img;
+      callback();
+    };
+    
+    img.onerror = () => {
+      console.error(`Failed to load image: ${imageName}`);
+      callback();
+    };
   }
 
   getDefaultRadioSelect(value: string): boolean {
