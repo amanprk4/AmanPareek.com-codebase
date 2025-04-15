@@ -1,22 +1,22 @@
-<div class="flex p-4 w-full h-full px-6 flex-col overflow-y-scroll" id="resumeWrapper">
+<div class="flex p-4 w-full h-full px-6 flex-col overflow-y-scroll max-md:px-2" id="resumeWrapper">
   <!-- Basic info row -->
   <div
     class="flex rounded-lg border border-solid border-primary-100 py-4 px-2 my-4 max-md:flex-col max-md:justify-center max-md:items-center"
   >
     <img
-      class="rounded-lg w-52 h-52 mx-2 max-md:mb-4"
+      class="rounded-lg w-52 h-52 mx-2 max-md:mb-4 max-md:w-40 max-md:h-40"
       src="../../../assets/images/resume_pic.jpeg"
     />
-    <div class="flex flex-col ml-2 justify-start">
-        <div class="flex justify-between items-center">
-            <span class="text-black text-3xl">Aman Pareek</span>
+    <div class="flex flex-col ml-2 justify-start max-md:ml-0 max-md:items-center max-md:text-center">
+        <div class="flex justify-between items-center max-md:flex-col max-md:gap-2">
+            <span class="text-black text-3xl max-md:text-2xl">Aman Pareek</span>
             <app-custom-button buttonName="Download" linkToOpen="../../../assets/documents/aman_pareek_resume.pdf" iconClass="fa-solid fa-file-arrow-down" ></app-custom-button>
         </div>
 
-      <span class="text-black text-xl my-2 border-b border-solid border-gray-100 pb-2">
+      <span class="text-black text-xl my-2 border-b border-solid border-gray-100 pb-2 max-md:text-lg">
         Senior Software Engineer at Zeotap</span
       >
-      <span class="text-gray-500 text-base [&_em]:text-primary-700 [&_em]:font-bold">
+      <span class="text-gray-500 text-base [&_em]:text-primary-700 [&_em]:font-bold max-md:text-sm">
         Experienced <em>Frontend Developer</em> with around <em>6 years</em> of expertise in building scalable, high-performance web applications using modern technologies like <em>Angular, React, Tailwind CSS, and Node.js</em>. Adept at leading innovative projects, optimizing web performance, and mentoring team members. Proven success in delivering impactful solutions for customer-facing products and enterprise platforms. Proficient in implementing <em>BFF layers, custom component libraries, and AI-powered features</em>, driving efficiency and user engagement. Strong advocate for clean code, best practices, and collaboration, with a passion for frontend-focused or full-stack roles in product-based organizations.
       </span>
     </div>
@@ -26,11 +26,11 @@
   <div
     class="flex flex-col my-4 rounded-lg border border-solid border-primary-100 py-4"
   >
-    <span class="text-black text-xl mx-4 mb-4 border-b border-solid border-gray-100 pb-2">
+    <span class="text-black text-xl mx-4 mb-4 border-b border-solid border-gray-100 pb-2 max-md:text-lg">
       <i class="fa-solid fa-screwdriver-wrench text-primary-700 mr-2"></i>
       Skills</span
     >
-    <div class="flex flex-wrap mx-2">
+    <div class="flex flex-wrap mx-2 max-md:justify-center">
       <div
         *ngFor="let skill of skillsList"
         class="m-2 px-4 py-2 rounded-l-xl rounded-r-xl bg-primary-50/25 border border-solid border-primary-500 text-black text-sm hover:text-white hover:bg-primary-500 [&_i]:hover:text-white"
@@ -44,7 +44,7 @@
   <div
     class="flex flex-col my-4 rounded-lg border border-solid border-primary-100 py-4"
   >
-    <span class="text-black text-xl mx-4 mb-4 border-b border-solid border-gray-100 pb-2">
+    <span class="text-black text-xl mx-4 mb-4 border-b border-solid border-gray-100 pb-2 max-md:text-lg">
       <i class="fa-solid fa-briefcase text-primary-700 mr-2"></i>
       Experience</span>
 

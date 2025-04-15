@@ -1,12 +1,11 @@
-<div class="h-[calc(100vh-80px)] max-md:h-[calc(100vh-100px)] bg-white flex w-full px-4 pb-4 flex-col">
+<div class="h-[calc(100vh-90px)] max-md:h-[calc(100vh-100px)] bg-white flex w-full px-4 pb-4 flex-col">
   <!-- Header Link -->
   <div class="my-2 flex items-center justify-between">
     <app-custom-header-link [headerLinkItems]="headerLinkItems"></app-custom-header-link>
   </div>
 
-
   <!-- Projects tray -->
-  <div class="flex flex-wrap rounded-lg border border-solid h-full border-gray-200 overflow-y-scroll p-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 rounded-lg border border-solid border-gray-200 p-4 max-md:p-2">
     <div *ngFor="let project of allProjects">
       <app-project-card [projectDetails]="project"></app-project-card>
     </div>

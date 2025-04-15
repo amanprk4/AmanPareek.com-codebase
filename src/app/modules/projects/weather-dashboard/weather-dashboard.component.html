@@ -1,0 +1,80 @@
+<div class="h-[calc(100vh-90px)] bg-white">
+  <div class="h-full px-4 py-1 flex flex-col max-md:p-4">
+    <!-- Header with breadcrumb and share -->
+    <div class="flex-none flex items-center justify-between">
+      <app-custom-header-link [headerLinkItems]="headerLinkItems"></app-custom-header-link>
+      <div class="flex gap-2">
+        <app-custom-button
+          [iconClass]="'fa-solid fa-rotate text-sm'"
+          [buttonName]="'Refresh'"
+          (onButtonClickEvent)="loadAllLocations()"
+        ></app-custom-button>
+        <app-custom-button
+          [iconClass]="'fa-solid fa-share text-sm'"
+          [buttonName]="'Share'"
+          (onButtonClickEvent)="shareLocations()"
+          class="text-sm"
+        ></app-custom-button>
+      </div>
+    </div>
+    
+    <!-- Location search component -->
+    <div class="flex-none mt-3">
+      <app-location-search (locationAdded)="addLocation($event)"></app-location-search>
+    </div>
+    
+    <!-- Error message display -->
+    <div *ngIf="error" class="flex-none mt-3 bg-red-50 text-red-700 p-3 rounded-lg">
+      {{ error }}
+    </div>
+    
+    <!-- Saved locations with options to remove -->
+    <div *ngIf="locations.length > 0" class="flex-none mt-2 flex flex-col gap-2 border-x border-gray-700/20 rounded-xl px-4 py-2 bg-gray-800/5">
+      <span class="text-sm font-medium text-primary-900 px-2 py-1 w-fit">Saved Locations</span>
+      <div class="flex flex-wrap gap-2">
+        <div *ngFor="let location of locations" 
+             class="flex items-center px-3 py-2 rounded-lg border border-solid border-gray-700/20 bg-gray-700/10 shadow-sm backdrop-blur-sm">
+          <span class="text-primary-700">{{ location }}</span>
+          <button 
+            class="ml-2 text-gray-400 hover:!text-red-400 transition-colors" 
+            (click)="removeLocation(location, $event)">
+            <i class="fa-solid fa-times"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Weather cards grid -->
+    <div *ngIf="!loading && weatherDataMap.size > 0" 
+         class="flex-1 min-h-0 border-t border-gray-200 mt-2 pt-3">
+      <div class="h-full overflow-y-auto">
+        <div class="flex flex-wrap gap-4">
+          <div *ngFor="let location of locations" 
+               class="w-[calc(25%-12px)] max-xl:w-[calc(33.33%-11px)] max-lg:w-[calc(50%-8px)] max-md:w-full">
+            <div *ngIf="loadingMap.get(location)" 
+                 class="h-full rounded-xl border border-gray-200 p-4 flex items-center justify-center">
+              <div class="flex flex-col items-center gap-2">
+                <i class="fa-solid fa-spinner fa-spin text-2xl text-primary-700"></i>
+                <span class="text-sm text-gray-500">Loading weather for {{location}}...</span>
+              </div>
+            </div>
+            <app-weather-card 
+              *ngIf="!loadingMap.get(location)"
+              [weatherData]="weatherDataMap.get(location) || null"
+              [location]="location"
+              [isLoading]="loadingMap.get(location) || false"
+              [error]="errorMap.get(location) || null">
+            </app-weather-card>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Loading spinner -->
+    <div *ngIf="loading && weatherDataMap.size === 0" 
+         class="flex-1 flex flex-col items-center justify-center p-4 text-center">
+      <i class="fa-solid fa-spinner fa-spin text-3xl text-primary-700 mb-2"></i>
+      <p class="text-gray-600">Loading weather data...</p>
+    </div>
+  </div>
+</div> 

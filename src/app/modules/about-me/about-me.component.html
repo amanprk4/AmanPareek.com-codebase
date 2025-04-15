@@ -1,7 +1,7 @@
-<div class="h-[calc(100vh-80px)]  max-md:h-[calc(100vh-100px)] overflow-y-scroll bg-white flex w-full max-md:flex-col">
+<div class="h-[calc(100vh-90px)] max-md:h-auto max-md:min-h-[calc(100vh-100px)] overflow-y-scroll bg-white flex w-full max-md:flex-col">
   <!-- text bio -->
-  <div class="flex items-center justify-center flex-[2_0_0%]">
-    <div class="flex flex-col items-center justify-center w-3/4 border border-solid border-primary-100 rounded-lg p-4 bg-primary-50/10 max-md:my-4">
+  <div class="flex items-center justify-center flex-[2_0_0%] max-md:flex-1 max-md:py-4">
+    <div class="flex flex-col items-center justify-center w-3/4 border border-solid border-primary-100 rounded-lg p-4 bg-primary-50/10 max-md:w-11/12 max-md:my-4">
       <div
         class="py-2 w-full flex justify-center text-primary-700 flex-col text-start"
       >
@@ -10,10 +10,10 @@
           <span>About Me</span>
           
         </span>
-        <mat-radio-group (change)="changeBioLength($event)">
+        <mat-radio-group (change)="changeBioLength($event)" class="flex flex-wrap max-md:flex-col">
           <mat-radio-button
             [value]="radioButton.value"
-            class="mr-4"
+            class="mr-4 max-md:mb-2"
             *ngFor="let radioButton of radioButtons"
             [checked]="getDefaultRadioSelect(radioButton.value)"
             >{{ radioButton.displayValue }}</mat-radio-button
@@ -23,7 +23,7 @@
   
       <div
       [@fadeInOutState]="selectedBioLength"
-        class="overflow-y-scroll w-full flex whitespace-pre-line text-primary-700 text-lg max-h-[60%]"
+        class="overflow-y-scroll w-full flex whitespace-pre-line text-primary-700 text-lg max-h-[60%] max-md:max-h-[40vh]"
       >
         <span
         class="text-gray-500 [&_em]:text-primary-700 [&_em]:font-bold"
@@ -35,8 +35,8 @@
   </div>
 
   <!-- Image slider -->
-  <div class="flex flex-1">
-    <div class="flex justify-center flex-col mx-6 max-md:m-auto max-md:w-3/4 max-md:my-4 relative">
+  <div class="flex flex-1 max-md:flex-1">
+    <div class="flex justify-center flex-col mx-6 max-md:m-auto max-md:w-11/12 max-md:my-4 relative">
             <!-- Navigation controls -->
             <div class="w-full flex items-center justify-between">
               <app-custom-button 
@@ -51,7 +51,7 @@
               </app-custom-button>
             </div>
       <!-- Image container -->
-      <div class="relative overflow-hidden rounded-xl w-[500px] h-[550px] my-2">
+      <div class="relative overflow-hidden rounded-xl w-[500px] h-[550px] my-2 max-md:w-full max-md:h-[400px]">
         <!-- Loading spinner -->
         <div *ngIf="isLoading" class="absolute inset-0 flex items-center justify-center bg-gray-100">
           <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-700"></div>

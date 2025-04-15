@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProjectsComponent } from './projects.component';
-import { ResumeBuilderComponent } from './resume-builder/resume-builder.component';
+import { WeatherDashboardComponent } from './weather-dashboard/weather-dashboard.component';
 
 const routes: Routes = [
   {path:'',component:ProjectsComponent},
-  {path:'resume-builder',component: ResumeBuilderComponent}
+  {path:'weather-dashboard',component: WeatherDashboardComponent}
 ];
 
 

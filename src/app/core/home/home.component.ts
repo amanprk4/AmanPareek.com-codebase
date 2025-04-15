@@ -5,7 +5,6 @@ import { Color, colors } from '../../shared/styles/colors';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { LocalstorageService } from '../services/localstorage';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -22,10 +21,10 @@ import { LocalstorageService } from '../services/localstorage';
   ],
 })
 export class HomeComponent {
-
   colors = colors;
   isHidden = false;
-  selectedTheme;
+  selectedTheme: string;
+
   getAnimationData(rOutlet: RouterOutlet) {
     const routeData = rOutlet.activatedRouteData["animation"];
     if (!routeData) {
@@ -34,18 +33,20 @@ export class HomeComponent {
       return routeData?.["page"];
     }
   }
-  constructor( private cdref: ChangeDetectorRef, private localStorage : LocalstorageService ) {
-    this.selectedTheme = localStorage.getItem('selectedTheme') || 'burgundy';
+
+  constructor(private cdref: ChangeDetectorRef, private localStorage: LocalstorageService) {
+    this.selectedTheme = this.localStorage.getItem('selectedTheme') || 'burgundy';
   }   
 
   ngOnInit(): void {
   }
 
-ngAfterContentChecked() {
+  ngAfterContentChecked() {
     this.cdref.detectChanges();
- }
- onThemeSelection(color: Color){
-  this.selectedTheme = color.name;
-  localStorage.setItem('selectedTheme',color.name);
-}
+  }
+
+  onThemeSelection(color: Color) {
+    this.selectedTheme = color.name;
+    this.localStorage.setItem('selectedTheme', color.name);
+  }
 }

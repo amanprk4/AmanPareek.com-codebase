@@ -3,8 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body { height: 100%;  }
-body { margin: 0; }
+html, body { 
+  height: 100%;  
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body { 
+  margin: 0; 
+  position: relative;
+}
 
 * {
     // font-family: 'Chalkduster', sans-serif;
@@ -24,7 +32,61 @@ body { margin: 0; }
 
     color: #34421E;
     letter-spacing: 1.5px;
+    box-sizing: border-box;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Responsive typography */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive container */
+.container {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}

@@ -1,9 +1,0 @@
-<div class="flex items-center">
-    <div *ngFor="let headerLinkItem of headerLinkItems">
-        <div class="py-4 px-2 border-b border-solid border-gray-200 text-primary-700" (click)="goToURL(headerLinkItem.routeLink)" [ngClass]="{'cursor-pointer':headerLinkItem.cursorPointer}">
-            <i class="fa-regular fa-rectangle-list mr-1" [ngClass]="{'text-primary-700':headerLinkItem.isActive}"></i>
-            <span class="mr-1" [ngClass]="{'underline underline-offset-8 text-primary-700':headerLinkItem.isActive,'hover:text-primary-700':!headerLinkItem.isActive}">{{headerLinkItem.name}}</span>
-            <i class="fa-solid fa-caret-right rotate-90 mr-1" [ngClass]="{'text-primary-700':headerLinkItem.isActive}"></i>
-          </div>
-    </div>
-</div>
