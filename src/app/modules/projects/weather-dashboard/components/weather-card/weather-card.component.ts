@@ -9,7 +9,12 @@ import { WeatherData } from '../../services/weather.service';
   template: `
     <div class="weather-card">
       <div class="card-header">
-        <h3>{{ location }}</h3>
+        <div class="location-info">
+          <h3>{{ location }}</h3>
+          <span class="location-details" *ngIf="weatherData">
+            {{ weatherData.state ? weatherData.state + ', ' : '' }}{{ weatherData.country }}
+          </span>
+        </div>
         <span class="date">{{ getCurrentDate() }}</span>
       </div>
       
@@ -65,14 +70,25 @@ import { WeatherData } from '../../services/weather.service';
     .card-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       margin-bottom: 15px;
+    }
+
+    .location-info {
+      display: flex;
+      flex-direction: column;
     }
     
     .card-header h3 {
       margin: 0;
       font-size: 1.2rem;
       font-weight: 600;
+    }
+
+    .location-details {
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 2px;
     }
     
     .date {

@@ -33,10 +33,10 @@
       <span class="text-sm font-medium text-primary-900 px-2 py-1 w-fit">Saved Locations</span>
       <div class="flex flex-wrap gap-2">
         <div *ngFor="let location of locations" 
-             class="flex items-center px-3 py-2 rounded-lg border border-solid border-gray-700/20 bg-gray-700/10 shadow-sm backdrop-blur-sm">
-          <span class="text-primary-700">{{ location }}</span>
+             class="flex items-center px-3 py-2 rounded-lg border border-solid border-gray-700/20 bg-white shadow-sm backdrop-blur-sm">
+          <span class="text-black">{{ location }}</span>
           <button 
-            class="ml-2 text-gray-400 hover:!text-red-400 transition-colors" 
+            class="ml-2 text-gray-400 hover:!text-red-500 transition-colors" 
             (click)="removeLocation(location, $event)">
             <i class="fa-solid fa-times"></i>
           </button>

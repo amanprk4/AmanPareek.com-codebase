@@ -5,6 +5,8 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 
 export interface WeatherData {
   location: string;
+  state?: string;
+  country: string;
   temperature: number;
   feelsLike: number;
   humidity: number;
@@ -77,11 +79,18 @@ export class WeatherService {
           if (!geoData.results || geoData.results.length === 0) {
             return throwError(() => new Error('Location not found'));
           }
-          const { latitude, longitude, name } = geoData.results[0];
+          const { latitude, longitude, name, admin1, country } = geoData.results[0];
+          
+          // Create full location name
+          const locationParts = [name];
+          if (admin1) locationParts.push(admin1);
+          if (country) locationParts.push(country);
+          const fullLocationName = locationParts.join(', ');
+
           return this.http.get<OpenMeteoResponse>(
             `${this.weatherApiUrl}?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,surface_pressure,visibility,weather_code&daily=sunrise,sunset&timezone=auto`
           ).pipe(
-            map(weatherData => this.mapToWeatherData(weatherData, name))
+            map(weatherData => this.mapToWeatherData(weatherData, name, admin1, country, fullLocationName))
           );
         }),
         catchError(error => {
@@ -91,22 +100,31 @@ export class WeatherService {
       );
   }
 
-  searchLocations(query: string): Observable<string[]> {
+  searchLocations(query: string): Observable<any[]> {
     if (!query || query.length < 2) {
       return of([]);
     }
     return this.http.get<any>(`${this.geocodingApiUrl}?name=${encodeURIComponent(query)}&count=5&language=en&format=json`)
       .pipe(
-        map(response => response.results?.map((result: any) => result.name) || []),
+        map(response => response.results?.map((result: any) => ({
+          name: result.name,
+          state: result.admin1,
+          country: result.country,
+          displayName: [result.name, result.admin1, result.country]
+            .filter(Boolean)
+            .join(', ')
+        })) || []),
         catchError(() => of([]))
       );
   }
 
-  private mapToWeatherData(data: OpenMeteoResponse, location: string): WeatherData {
+  private mapToWeatherData(data: OpenMeteoResponse, location: string, state?: string, country?: string, fullLocationName?: string): WeatherData {
     return {
-      location,
+      location: fullLocationName || location,
+      state,
+      country: country || '',
       temperature: data.current.temperature_2m,
-      feelsLike: data.current.temperature_2m, // Open-Meteo doesn't provide feels-like temperature
+      feelsLike: data.current.temperature_2m,
       humidity: data.current.relative_humidity_2m,
       windSpeed: data.current.wind_speed_10m,
       description: this.getWeatherDescription(data.current.weather_code),

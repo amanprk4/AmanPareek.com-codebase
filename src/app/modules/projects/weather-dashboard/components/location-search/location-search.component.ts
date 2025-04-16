@@ -6,6 +6,13 @@ import { WeatherService } from '../../services/weather.service';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
+interface LocationSuggestion {
+  name: string;
+  state?: string;
+  country: string;
+  displayName: string;
+}
+
 @Component({
   selector: 'app-location-search',
   standalone: true,
@@ -25,9 +32,12 @@ import { Subject } from 'rxjs';
           <div
             *ngFor="let suggestion of suggestions"
             (click)="selectLocation(suggestion)"
-            class="px-4 py-2 cursor-pointer hover:bg-primary-50 text-primary-900"
+            class="px-4 py-2 cursor-pointer hover:bg-primary-50"
           >
-            {{ suggestion }}
+            <div class="text-primary-900">{{ suggestion.name }}</div>
+            <div class="text-sm text-gray-500">
+              {{ suggestion.state ? suggestion.state + ', ' : '' }}{{ suggestion.country }}
+            </div>
           </div>
         </div>
       </div>
@@ -44,7 +54,7 @@ export class LocationSearchComponent {
   @Output() locationAdded = new EventEmitter<string>();
   
   searchQuery: string = '';
-  suggestions: string[] = [];
+  suggestions: LocationSuggestion[] = [];
   private searchSubject = new Subject<string>();
 
   constructor(private weatherService: WeatherService) {
@@ -71,9 +81,9 @@ export class LocationSearchComponent {
     }
   }
 
-  selectLocation(location: string): void {
-    this.searchQuery = location;
-    this.suggestions = [];
-    this.locationAdded.emit(location);
+  selectLocation(suggestion: LocationSuggestion): void {
+    this.locationAdded.emit(suggestion.displayName);
+    this.searchQuery = ''; // Clear the search bar
+    this.suggestions = []; // Clear suggestions
   }
 } 

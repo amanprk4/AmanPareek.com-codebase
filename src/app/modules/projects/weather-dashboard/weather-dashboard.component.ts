@@ -66,11 +66,11 @@ export class WeatherDashboardComponent implements OnInit, OnDestroy {
       }
 
       if (params['locations']) {
-        // Merge URL locations with saved locations
-        const urlLocations = params['locations'].split(',');
+        const urlLocations = params['locations'].split('|');
         urlLocations.forEach((location: string) => {
-          if (!this.locations.includes(location)) {
-            this.locations.push(location);
+          const cityName = location.split(',')[0].trim(); // Get only the city name
+          if (!this.locations.includes(cityName)) {
+            this.locations.push(cityName);
           }
         });
         
@@ -160,10 +160,13 @@ export class WeatherDashboardComponent implements OnInit, OnDestroy {
     // Clear any previous error
     this.error = null;
     
-    if (!this.locations.includes(location)) {
-      this.locations.push(location);
+    // Extract only the city name
+    const cityName = location.split(',')[0].trim();
+    
+    if (!this.locations.includes(cityName)) {
+      this.locations.push(cityName);
       this.saveLocations();
-      this.loadWeatherData(location);
+      this.loadWeatherData(cityName);
       this.updateUrlWithLocations();
     }
   }
@@ -183,7 +186,7 @@ export class WeatherDashboardComponent implements OnInit, OnDestroy {
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {
-        locations: this.locations.join(',')
+        locations: this.locations.join('|') // Use pipe (|) as separator
       },
       queryParamsHandling: 'merge'
     });
