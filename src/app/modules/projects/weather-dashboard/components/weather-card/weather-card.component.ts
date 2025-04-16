@@ -7,26 +7,30 @@ import { WeatherData } from '../../services/weather.service';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="weather-card border border-primary-100/40 border-solid" [ngClass]="getWeatherBackground()">
+    <div class="weather-card border border-primary-100/40 m-2 border-solid min-h-[300px] bg-white/90" [ngClass]="getWeatherBackground()">
       <div class="weather-animation"></div>
       <div class="card-header">
         <div class="location-info">
-          <h3>{{ location }}</h3>
-          <span class="location-details" *ngIf="weatherData">
+          <h3 class="text-primary-900">{{ location }}</h3>
+          <span class="location-details text-primary-600" *ngIf="weatherData">
             {{ weatherData.state ? weatherData.state + ', ' : '' }}{{ weatherData.country }}
           </span>
         </div>
-        <span class="date">{{ getCurrentDate() }}</span>
+        <span class="date text-primary-600">{{ getCurrentDate() }}</span>
       </div>
       
-      <div *ngIf="isLoading" class="loading-state">
-        <i class="fa-solid fa-spinner fa-spin"></i>
-        <p>Loading weather data...</p>
+      <div *ngIf="isLoading" class="loading-state h-full flex items-center justify-center">
+        <div class="flex flex-col items-center gap-2">
+          <i class="fa-solid fa-spinner fa-spin text-2xl text-primary-600"></i>
+          <p class="text-sm text-primary-500">Loading weather data...</p>
+        </div>
       </div>
       
-      <div *ngIf="error" class="error-state">
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        <p>{{ error }}</p>
+      <div *ngIf="error" class="error-state h-full flex items-center justify-center">
+        <div class="flex flex-col items-center gap-2">
+          <i class="fa-solid fa-triangle-exclamation text-2xl text-red-500"></i>
+          <p class="text-sm text-red-500">{{ error }}</p>
+        </div>
       </div>
       
       <div *ngIf="!isLoading && !error && weatherData" class="card-content">
@@ -35,22 +39,22 @@ import { WeatherData } from '../../services/weather.service';
         </div>
         
         <div class="temperature">
-          <span class="current-temp">{{ weatherData.temperature }}°C</span>
-          <span class="feels-like">Feels like: {{ weatherData.feelsLike }}°C</span>
+          <span class="current-temp text-primary-900">{{ weatherData.temperature }}°C</span>
+          <span class="feels-like text-primary-600">Feels like: {{ weatherData.feelsLike }}°C</span>
         </div>
         
         <div class="weather-details">
           <div class="detail">
-            <i class="fa-solid fa-droplet"></i>
-            <span>Humidity: {{ weatherData.humidity }}%</span>
+            <i class="fa-solid fa-droplet text-primary-600"></i>
+            <span class="text-primary-700">Humidity: {{ weatherData.humidity }}%</span>
           </div>
           <div class="detail">
-            <i class="fa-solid fa-wind"></i>
-            <span>Wind: {{ weatherData.windSpeed }} m/s</span>
+            <i class="fa-solid fa-wind text-primary-600"></i>
+            <span class="text-primary-700">Wind: {{ weatherData.windSpeed }} m/s</span>
           </div>
         </div>
         
-        <div class="weather-condition">
+        <div class="weather-condition text-primary-800">
           {{ weatherData.description }}
         </div>
       </div>
@@ -156,17 +160,30 @@ import { WeatherData } from '../../services/weather.service';
       }
     }
 
+    @keyframes card-hover {
+      0% {
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        transform: translateY(-5px) scale(1.02);
+      }
+    }
+
     .weather-card {
-      background-color: rgba(255, 255, 255, 0.9);
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       padding: 20px;
       width: 100%;
-      height: 100%;
       display: flex;
       flex-direction: column;
       position: relative;
       overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .weather-card:hover {
+      animation: card-hover 0.3s ease forwards;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     }
 
     .weather-animation {
@@ -177,6 +194,11 @@ import { WeatherData } from '../../services/weather.service';
       bottom: 0;
       pointer-events: none;
       z-index: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .weather-card:hover .weather-animation {
+      opacity: 0.8;
     }
 
     .card-header, .card-content, .loading-state, .error-state {
@@ -275,6 +297,11 @@ import { WeatherData } from '../../services/weather.service';
       justify-content: space-between;
       align-items: flex-start;
       margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .weather-card:hover .card-header {
+      transform: translateY(-2px);
     }
 
     .location-info {
@@ -286,6 +313,11 @@ import { WeatherData } from '../../services/weather.service';
       margin: 0;
       font-size: 1.2rem;
       font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .weather-card:hover .card-header h3 {
+      @apply text-primary-700;
     }
 
     .location-details {
@@ -322,12 +354,22 @@ import { WeatherData } from '../../services/weather.service';
       flex-direction: column;
       align-items: center;
       flex-grow: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .weather-card:hover .card-content {
+      transform: translateY(-2px);
     }
     
     .weather-icon {
       font-size: 3rem;
       margin: 10px 0;
       color: #1976d2;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .weather-card:hover .weather-icon {
+      @apply text-primary-600;
     }
     
     .temperature {
@@ -340,6 +382,11 @@ import { WeatherData } from '../../services/weather.service';
     .current-temp {
       font-size: 2.5rem;
       font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    .weather-card:hover .current-temp {
+      @apply text-primary-700;
     }
     
     .feels-like {
@@ -360,11 +407,21 @@ import { WeatherData } from '../../services/weather.service';
       flex-direction: column;
       align-items: center;
       font-size: 0.9rem;
+      transition: transform 0.3s ease;
+    }
+
+    .weather-card:hover .detail {
+      transform: translateY(-2px);
     }
     
     .detail i {
       margin-bottom: 5px;
       color: #1976d2;
+      transition: color 0.3s ease;
+    }
+
+    .weather-card:hover .detail i {
+      color: #1565c0;
     }
     
     .weather-condition {
@@ -373,6 +430,11 @@ import { WeatherData } from '../../services/weather.service';
       font-weight: 500;
       margin-top: 10px;
       text-transform: capitalize;
+      transition: color 0.3s ease;
+    }
+
+    .weather-card:hover .weather-condition {
+      color: #1976d2;
     }
   `]
 })

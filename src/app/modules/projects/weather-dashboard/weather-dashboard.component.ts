@@ -78,13 +78,10 @@ export class WeatherDashboardComponent implements OnInit, OnDestroy {
         this.saveLocations();
       }
 
-      // Load weather for all locations
+      // Load weather for all locations if any exist
       if (this.locations.length > 0) {
         this.loadAllLocations();
         this.updateUrlWithLocations();
-      } else {
-        // If no locations at all, try to get current location
-        this.getCurrentLocation();
       }
     });
   }
@@ -106,24 +103,6 @@ export class WeatherDashboardComponent implements OnInit, OnDestroy {
     this.localStorage.setItem('weatherLocations', JSON.stringify(this.locations));
   }
 
-  getCurrentLocation(): void {
-    this.loading = true;
-    this.error = null;
-    this.weatherService.getCurrentLocation().subscribe({
-      next: (location: string) => {
-        this.loading = false;
-        if (location) {
-          this.addLocation(location);
-        }
-      },
-      error: (err: Error) => {
-        this.loading = false;
-        this.error = 'Could not detect your location. Please search for a location manually.';
-        console.error('Error getting current location:', err);
-      }
-    });
-  }
-
   loadAllLocations(): void {
     // Clear any existing data
     this.weatherDataMap.clear();
@@ -139,21 +118,24 @@ export class WeatherDashboardComponent implements OnInit, OnDestroy {
   loadWeatherData(location: string): void {
     if (!location) return;
     
-    this.loadingMap.set(location, true);
-    this.errorMap.delete(location);
-    
-    this.weatherService.getWeatherData(location).subscribe({
-      next: (data: WeatherData) => {
-        this.weatherDataMap.set(location, data);
-        this.loadingMap.set(location, false);
-        this.error = null;
-      },
-      error: (err: Error) => {
-        this.errorMap.set(location, `Error loading weather data for ${location}. Please try again.`);
-        this.loadingMap.set(location, false);
-        console.error(`Error loading weather data for ${location}:`, err);
-      }
-    });
+    // Only load if not already loading and no data exists
+    if (!this.loadingMap.get(location) && !this.weatherDataMap.get(location)) {
+      this.loadingMap.set(location, true);
+      this.errorMap.delete(location);
+      
+      this.weatherService.getWeatherData(location).subscribe({
+        next: (data: WeatherData) => {
+          this.weatherDataMap.set(location, data);
+          this.loadingMap.set(location, false);
+          this.error = null;
+        },
+        error: (err: Error) => {
+          this.errorMap.set(location, `Error loading weather data for ${location}. Please try again.`);
+          this.loadingMap.set(location, false);
+          console.error(`Error loading weather data for ${location}:`, err);
+        }
+      });
+    }
   }
 
   addLocation(location: string): void {
@@ -167,7 +149,13 @@ export class WeatherDashboardComponent implements OnInit, OnDestroy {
       this.locations.push(cityName);
       this.saveLocations();
       this.loadWeatherData(cityName);
-      this.updateUrlWithLocations();
+      // Update URL without page reload
+      this.router.navigate([], {
+        relativeTo: this.route,
+        queryParams: { locations: this.locations.join('|') },
+        queryParamsHandling: 'merge',
+        replaceUrl: true
+      });
     }
   }
 
@@ -179,7 +167,13 @@ export class WeatherDashboardComponent implements OnInit, OnDestroy {
     this.weatherDataMap.delete(location);
     this.loadingMap.delete(location);
     this.errorMap.delete(location);
-    this.updateUrlWithLocations();
+    // Update URL without page reload
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { locations: this.locations.join('|') },
+      queryParamsHandling: 'merge',
+      replaceUrl: true
+    });
   }
 
   updateUrlWithLocations(): void {
