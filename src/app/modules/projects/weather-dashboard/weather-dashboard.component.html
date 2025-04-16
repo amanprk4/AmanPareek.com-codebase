@@ -29,7 +29,7 @@
     </div>
     
     <!-- Saved locations with options to remove -->
-    <div *ngIf="locations.length > 0" class="flex-none mt-2 flex flex-col gap-2 border-x border-gray-700/20 rounded-xl px-4 py-2 bg-gray-800/5">
+    <div *ngIf="locations.length > 0" class="flex-none mt-2 flex flex-col gap-2 border-x border-primary-900 rounded-xl px-4 py-2">
       <span class="text-sm font-medium text-primary-900 px-2 py-1 w-fit">Saved Locations</span>
       <div class="flex flex-wrap gap-2">
         <div *ngFor="let location of locations" 
@@ -46,7 +46,7 @@
     
     <!-- Weather cards grid -->
     <div *ngIf="!loading && weatherDataMap.size > 0" 
-         class="flex-1 min-h-0 border-t border-gray-200 mt-2 pt-3">
+         class="flex-1 min-h-0 border rounded border-gray-100 mt-2 p-2">
       <div class="h-full overflow-y-auto">
         <div class="flex flex-wrap gap-4">
           <div *ngFor="let location of locations" 
