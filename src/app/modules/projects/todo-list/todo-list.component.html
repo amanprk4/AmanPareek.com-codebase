@@ -1,0 +1,131 @@
+<div class="h-[calc(100vh-90px)] bg-white">
+  <div class="mx-auto h-full">
+    <div class="h-full px-4 py-2 flex flex-col max-md:p-4">
+      <!-- Header with breadcrumb -->
+      <div class="flex-none flex items-center justify-between mb-2">
+        <app-custom-header-link [headerLinkItems]="headerLinkItems"></app-custom-header-link>
+      </div>
+
+      <!-- Add Todo Form -->
+      <div class="mb-2">
+        <div class="flex flex-col gap-4">
+          <div class="flex gap-2">
+            <input type="text" [(ngModel)]="newTodoText" (keyup)="onKeyPress($event)" placeholder="Add a new task..."
+              maxlength="maxTextLength"
+              class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+            <app-custom-button [buttonName]="'Add'" [iconClass]="'fa fa-plus'"
+              (onButtonClickEvent)="addTodo()"></app-custom-button>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-sm text-gray-500">{{ newTodoText.length }}/{{ maxTextLength }}</span>
+              <div class="flex-1 flex gap-2">
+                <button *ngFor="let color of colors" (click)="selectedColor = color.name"
+                  [class]="'w-6 h-6 rounded-full border-2 ' + color.class + ' ' + (selectedColor === color.name ? 'ring-2 ring-offset-2' : '')"></button>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <!-- Completion Stats -->
+              <div class="text-sm text-gray-500">
+                Overall: {{ getCompletionStats().completed }}/{{ getCompletionStats().total }} ({{
+                getCompletionStats().percentage }}%)
+              </div>
+              <!-- Clear All Button -->
+              <div *ngIf="todos.length > 0" class="flex justify-end">
+                <app-custom-button [buttonName]="'Clear All'" [iconClass]="'fa fa-trash-alt'"
+                  (onButtonClickEvent)="clearAllTodos()"></app-custom-button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- Todo List with Scroll Buttons -->
+      <div class="flex-1 min-h-0 h-full relative">
+        <!-- ← outer scroll: all groups scroll together -->
+        <div #scrollContainer class="h-full overflow-x-auto" (scroll)="onScroll()">
+          <div class="flex gap-4 h-full">
+            <!-- each group is one full‑width slide -->
+            <div *ngFor="let group of getGroupedTodos(); let i = index"
+              [ngStyle]="{'background-color': getColorClass(group.color)}"
+              class="flex-none h-full border-x border-solid border-primary-100 rounded-lg px-4 group">
+              <div class="flex items-center justify-between border-b border-primary-100">
+                <span class="text-lg font-semibold capitalize bg-white py-2 w-full">
+                  {{ group.color }}
+                </span>
+                <div class="flex items-center">
+                  <div class="text-sm text-gray-500 flex items-center gap-2">
+                    <span>{{ getCompletedCount(group.todos) }}/{{ group.todos.length }}</span>
+                    <span>({{ (getCompletedCount(group.todos) / group.todos.length * 100) | number:'1.0-0' }}%)</span>
+                  </div>
+                  <button (click)="openEditModal(group)"
+                    class="edit-button p-2 text-blue-500 hover:text-blue-600 focus:outline-none transition-opacity opacity-0 group-hover:opacity-100">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- no scroll here -->
+              <div class="flex flex-col flex-wrap h-[calc(100%-50px)]">
+                <div *ngFor="let todo of group.todos; let j = index"
+                  class="todo-item m-2 break-inside-avoid p-4 rounded-lg group transition-colors flex items-center w-[400px]"
+                  [class]="getColorClass(todo.color)">
+                  <span class="text-sm text-gray-500 mr-2">{{ i + 1 }}.{{ j + 1 }}</span>
+                  <input type="checkbox" [checked]="todo.completed" (change)="toggleTodo(todo)"
+                    class="w-5 h-5 text-blue-500 border-gray-300 rounded focus:ring-blue-500" />
+                  <span [class]="
+                todo.completed
+                  ? 'line-through text-gray-500'
+                  : 'text-gray-900'
+              " class="flex-1 truncate ml-2" [title]="todo.text">
+                    {{ todo.text }}
+                  </span>
+                  <button (click)="openTodoDetails(todo)" class="ml-2 text-primary-900 hover:text-blue-600 focus:outline-none">
+                    View Details
+                  </button>
+                  <div *ngIf="todo.showDetails" class="text-xs text-gray-400 ml-2">
+                    <span>Created: {{ todo.createdAt | date:'short' }}</span>
+                    <span *ngIf="todo.completed">Checked: {{ todo.completedAt | date:'short' }}</span>
+                  </div>
+                  <button (click)="deleteTodo(todo.id)"
+                    class="delete-button p-2 !text-red-500 hover:!text-red-600 focus:outline-none transition-opacity">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <!-- Left Scroll Button -->
+        <div>
+          <app-custom-button *ngIf="canScrollLeft" [iconClass]="'fa-solid fa-chevron-left'"
+            (onButtonClickEvent)="scrollLeft()" class="z-20" [buttonName]="'Scroll Left'"></app-custom-button>
+        </div>
+
+        <div>
+          <!-- Right Scroll Button -->
+          <app-custom-button *ngIf="canScrollRight" [iconClass]="'fa-solid fa-chevron-right'"
+            (onButtonClickEvent)="scrollRight()" class="z-20" [buttonName]="'Scroll Right'"></app-custom-button>
+        </div>
+
+      </div>
+
+
+      <!-- Empty State -->
+      <div *ngIf="todos.length === 0" class="text-center py-8 text-gray-500">
+        No todos yet. Add one above!
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.todo-item:hover .hover-info {
+  opacity: 1;
+}
+</style>

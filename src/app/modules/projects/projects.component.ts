@@ -34,6 +34,15 @@ export class ProjectsComponent implements OnInit{
       underDevelopment: false,
       githubUrl: 'https://github.com/AmanPareek/AmanPareek.com',
       liveUrl: 'https://amanpareek.com/home/projects/weather-dashboard'
+    },
+    {
+      name: 'Todo List',
+      path: 'home/projects/todo-list',
+      description: 'A simple yet powerful Todo List application that helps you manage your tasks efficiently. Features include adding, completing, and removing todos with smooth animations. Your todos are automatically saved to local storage, ensuring your tasks persist even after closing the browser.',
+      icon: 'fas fa-tasks',
+      underDevelopment: false,
+      githubUrl: 'https://github.com/AmanPareek/AmanPareek.com',
+      liveUrl: 'https://amanpareek.com/home/projects/todo-list'
     }
   ]
 

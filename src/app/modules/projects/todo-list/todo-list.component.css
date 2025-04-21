@@ -1,0 +1,85 @@
+/* Custom checkbox styles */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #d1d5db;
+  border-radius: 0.25rem;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Smooth transitions */
+.todo-item {
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+/* Hover effects */
+.todo-item:hover {
+  transform: translateY(-2px);
+  background-color: #f0f0f0;
+}
+
+/* Adjust container to remove extra space at the bottom */
+.flex-1 {
+  min-height: 0;
+}
+
+/* Ensure even distribution of todo items */
+.flex-wrap {
+  align-content: start;
+}
+
+/* Custom scrollbar styles with Tailwind theme colors */
+#scrollContainer::-webkit-scrollbar {
+  height: 8px;
+  background: theme('colors.gray.100');
+}
+
+#scrollContainer::-webkit-scrollbar-track {
+  background: theme('colors.gray.200');
+  border-radius: 10px;
+}
+
+#scrollContainer::-webkit-scrollbar-thumb {
+  background: theme('colors.blue.500');
+  border-radius: 10px;
+}
+
+#scrollContainer::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.blue.700');
+}
+
+/* Show delete icon only on hover */
+.delete-button {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.todo-item:hover .delete-button {
+  opacity: 1;
+}
+
+#scrollContainer {
+  transition: transform 0.3s ease-in-out;
+} 

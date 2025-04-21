@@ -1349,6 +1349,54 @@ export const colors: Color[] = [
       '800': '#8a6e00',
       '900': '#775f00'
     }
+  },
+  {
+    displayName: 'Sunset',
+    name: 'sunset',
+    hexCodes: {
+      50: '#ffedd5',
+      100: '#fed7aa',
+      200: '#fdba74',
+      300: '#fb923c',
+      400: '#f97316',
+      500: '#ea580c',
+      600: '#c2410c',
+      700: '#9a3412',
+      800: '#7c2d12',
+      900: '#651e0e',
+    }
+  },
+  {
+    displayName: 'Ocean',
+    name: 'ocean',
+    hexCodes: {
+      50: '#e0f7fa',
+      100: '#b2ebf2',
+      200: '#80deea',
+      300: '#4dd0e1',
+      400: '#26c6da',
+      500: '#00bcd4',
+      600: '#00acc1',
+      700: '#0097a7',
+      800: '#00838f',
+      900: '#006064',
+    }
+  },
+  {
+    displayName: 'Forest',
+    name: 'forest',
+    hexCodes: {
+      50: '#e8f5e9',
+      100: '#c8e6c9',
+      200: '#a5d6a7',
+      300: '#81c784',
+      400: '#66bb6a',
+      500: '#4caf50',
+      600: '#43a047',
+      700: '#388e3c',
+      800: '#2e7d32',
+      900: '#1b5e20',
+    }
   }
 ].sort(dynamicSort('displayName'));
 
